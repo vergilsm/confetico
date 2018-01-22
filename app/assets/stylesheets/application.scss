@@ -1,1 +1,36 @@
 @import "bootstrap";
+@import "font-awesome";
+@import "images";
+@import "marquee";
+@import "template";
+
+/* Buffers */
+.buffer-top {
+    margin-top: 20px;
+}
+
+.buffer-bottom {
+    margin-bottom: 20px;
+}
+
+.buffer-both {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.buffer-both-sm {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*Убирает * в simple_form*/
+abbr[title="required"] {
+  display: none;
+}
+
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border: 0;
+  border-top: 3px solid rgb(128,0,128);
+}

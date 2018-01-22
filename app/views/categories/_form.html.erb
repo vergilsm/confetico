@@ -1,0 +1,4 @@
+<%= simple_form_for @category, html: {multipart: true} do |f| %>
+  <%= f.input :product_category, label:'Наименование категории' %>
+  <%= f.button :submit, 'Сохронить', class: "btn btn-primary btn-sm" %> или <%= link_to 'вернуться', :back %>
+<% end %>

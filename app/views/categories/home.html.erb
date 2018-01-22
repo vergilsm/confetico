@@ -1,0 +1,64 @@
+<div class="marquee">
+  <span>
+    <%= image_tag("goods/Candy_Box") %>
+    <%= image_tag("goods/Candy_Chocolate") %>
+    <%= image_tag("goods/Marmalade_Sweets_Candy") %>
+    <%= image_tag("goods/Sweets_Candy_Chocolate") %>
+    <%= image_tag("goods/Sweets_Candy_Chocolate_Closeup") %>
+    <%= image_tag("goods/Sweets_Candy_Chocolate_Heart") %>
+    <%= image_tag("goods/Sweets_Candy_Lollipop") %>
+    <%= image_tag("goods/Sweets_Candy_Marmalade") %>
+    <%= image_tag("goods/Sweets_Closeup_Macro_White") %>
+  </span>
+</div>
+
+<div class="container buffer-top">
+  <div class="row text-center">
+    <div class="col-lg-6">
+      <h2>Коротко о нас</h2>
+      <p class="text-left">
+        Компания Конфетико на рынке уже 17 лет. Мы работаем с множеством поставщиков
+        из россии и ближнего зарубежья, такими как: Мармелад на расхват, Карамелита,
+        Шок-шоколад и др. Товары доставляем в срок и без промедлений.
+      </p>
+      <p><em>Мы работаем для вас!</em></p>
+      <div>
+        <%= image_tag("business-woman") %>
+      </div>
+      <p><small>Генеральный директор</small></p>
+      <p>Сладкая Мармелада Барбарисовна</p>
+    </div>
+    <div class="col-lg-6">
+      <h2>Наши новые продукты</h2>
+      <div class="card-deck">
+        <div class="card bg-color text-white">
+          <%= image_tag("goods/Candy_Box", class: "card-img-top img-sm") %>
+          <div class="card-body">
+            <h5 class="card-title">шоколадное ассорти - 90руб</h5>
+          </div>
+          <div class="card-footer">
+            <p><%= link_to 'Купить', "#", class: "btn btn-primary" %></p>
+          </div>
+        </div>
+        <div class="card bg-color text-white">
+          <%= image_tag("goods/Candy_Chocolate", class: "card-img-to img-sm") %>
+          <div class="card-body">
+            <h5 class="card-title">шоколадное ассорти сердце - 150руб</h5>
+          </div>
+          <div class="card-footer">
+            <p><%= link_to 'Купить', "#", class: "btn btn-primary" %></p>
+          </div>
+        </div>
+        <div class="card bg-color text-white">
+          <%= image_tag("goods/Marmalade_Sweets_Candy", class: "card-img-to img-sm") %>
+          <div class="card-body">
+            <h5 class="card-title">мармелад фигура - 90руб</h5>
+          </div>
+          <div class="card-footer">
+            <p><%= link_to 'Купить', "#", class: "btn btn-primary" %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
