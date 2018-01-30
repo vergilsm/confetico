@@ -1,5 +1,4 @@
-# Класс в котором создаются категории, которые можно: просматривать, удалять.
-# Создается для последующего наполнения категорий товарами(items)
+# Класс в котором создаются категории, их можно: просматривать, удалять.
 #
 class CategoriesController < ApplicationController
   before_action :set_category, only: %I[show destroy]
@@ -9,11 +8,11 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category
+    @categories = Category.all
   end
 
   def show
-    @category || render_404
+    @item = @category.items.build(params[:item])
   end
 
   def new
@@ -23,7 +22,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.create(category_params)
     if @category.errors.empty?
-      redirect_to category_path(@category)
+      redirect_to category_path(@category), notice: 'Category created'
     else
       render :new
     end

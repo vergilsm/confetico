@@ -1,0 +1,9 @@
+<% @category.items.each do |item| %>
+  <ul class="list-group list-group-flush">
+    <% if item.persisted? %>
+      <li class="list-group-item"><h6><%= link_to item.name, item_path(item) %>
+      Вес: <%= item.weight %> Цена: <%= item.price %></h6>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

@@ -12,81 +12,75 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <%= javascript_include_tag "application" %>
   </head>
-
-    <nav class="navbar navbar-expand-lg bg-color">
-      <%= image_tag("logo", :class => "navbar-brand img-logo") %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 text-center text-white buffer-top">
-            <h2>Продаём сладости по всей стране</h2>
-            <p>Мы с вами уже много лет</p>
-          </div>
-          <div class="col-lg-2 text-center text-white buffer-bottom">
-            <br />
-            <p><i class="fa fa-phone"></i> 8 800 100 10 10</p>
-          </div>
-          <div class="col-lg-2 text-center">
-            <br />
-            <a href="#">
-              <i class="fa fa-cart-plus fa-2x cart-blue"></i>
-              <p>добавить в корзину</p>
-            </a>
-          </div>
-          <div class="col-lg-7">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <%= link_to 'Главная', root_path, class: "nav-link" %><span class="sr-only">(current)</span>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'О компании', "#", class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'Товары', categories_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'Доставка', "#", class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'Акции', "#", class: "nav-link" %>
-                </li>
-              </ul>
+    <body>
+      <nav class="navbar navbar-expand-lg bg-color">
+        <%= image_tag("logo", :class => "navbar-brand img-logo") %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 text-center text-white buffer-top">
+              <h2>Продаём сладости по всей стране</h2>
+              <p>Мы с вами уже много лет</p>
+            </div>
+            <div class="col-lg-2 text-center text-white buffer-bottom">
+              <br />
+              <p><i class="fa fa-phone"></i> 8 800 100 10 10</p>
+            </div>
+            <div class="col-lg-2 text-center">
+              <br />
+              <a href="#">
+                <i class="fa fa-cart-plus fa-2x cart-blue"></i>
+                <p>добавить в корзину</p>
+              </a>
+            </div>
+            <div class="col-lg-7">
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <%= link_to 'Главная', root_path, class: "nav-link" %><span class="sr-only">(current)</span>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to 'О компании', "#", class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to 'Товары', categories_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to 'Доставка', "#", class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to 'Акции', "#", class: "nav-link" %>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <body>
       <div class="max-width page-wrap">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-4 col-lg-3" id="list">
               <div class="list-group">
                 <h4 class="list-group-item">Категории</h4>
-                <%= link_to 'Шоколад', "/categories/1",
-                  class: "list-group-item list-group-item-action" %>
-                <%= link_to 'Cras justo odio', "#",
-                  class: "list-group-item list-group-item-action" %>
-                <%= link_to 'Cras justo odio', "#",
-                  class: "list-group-item list-group-item-action" %>
-                <%= link_to 'Cras justo odio', "#",
-                  class: "list-group-item list-group-item-action" %>
-                <%= link_to 'Cras justo odio', "#",
-                  class: "list-group-item list-group-item-action" %>
+                <div class="list-group">
+                  <% @categories.each do |category| %>
+                    <%= link_to category.product_category, category,
+                    class: "list-group-item list-group-item-action" %>
+                  <% end %>
+                </div>
+                <p class="text-left"><%= link_to 'Создать категорию', new_category_url,
+                class: 'btn btn-primary buffer-top' %></p>
               </div>
             </div>
+
             <%= yield %>
           </div>
         </div>
       </div>
-
-
-    <script src="js/bootstrap.min.js"></script>
-  </body>
 
     <footer>
       <div class="container-fluid bg-color text-white">
@@ -107,4 +101,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>

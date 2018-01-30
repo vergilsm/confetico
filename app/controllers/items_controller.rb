@@ -1,35 +1,27 @@
 # Класс дает возможность создать, обновить, просмотреть и удалить товар
 #
 class ItemsController < ApplicationController
-  before_action :set_items, only: %I[show edit update destroy]
-
-  def index
-    @items = Item
-  end
+  before_action :set_category, only: %I[show create destroy]
+  before_action :set_item, only: %I[show edit update destroy]
 
   def show
-    @item || render_404
-  end
-
-  def new
-    @item = Item.new
   end
 
   def create
-    @item = Item.create(item_params)
-    if @item.errors.empty?
-      redirect_to item_url(@item)
+    @item = @category.items.build(item_params)
+    if @item.save
+      redirect_to @category, notice: 'Item created'
     else
-      render :new
+      render 'categories/show'
     end
   end
 
-  def edit end
+  def edit
+  end
 
   def update
-    @item.update_attributes(item_params)
-    if @item.errors.empty?
-      redirect_to item_url(@item), notice: I18n.t('controllers.items.updated')
+    if @category.items.update(item_params)
+      redirect_to @category, notice: 'Item updated'#I18n.t('controllers.items.updated')
     else
       render :edit
     end
@@ -37,17 +29,21 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to action: :index
+    redirect_to category_path
   end
 
   private
 
-  def set_items
-    @item = Items.find(params[:id])
+  def set_category
+    @category = Category.find(params[:category_id]) if params[:category_id]
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :weight, :real, :description,
-                                 :quantity_item, :category_id)
+    params.require(:item).permit(:name, :price, :weight, :description,
+                                 :quantity_item)
   end
 end

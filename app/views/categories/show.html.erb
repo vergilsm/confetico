@@ -1,4 +1,9 @@
 <div class="col-lg-9">
-  <h2 class="text-center buffer-both">Категории товаров <hr /></h2>
-  <h3><%= @category.product_category %></h3>
+  <h2 class="buffer-both text-center"><%= @category.product_category %> <hr /></h2>
+
+  <%= render partial: 'items/category_items' %>
+
+  <div class="col-md-6 col-lg-4 pull-right">
+    <%= render partial: 'items/form', locals: {item: @item || @category.items.build} %>
+  </div>
 </div>
