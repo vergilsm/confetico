@@ -1,11 +1,11 @@
-# Класс дает возможность создать, обновить, просмотреть и удалить товар
+# Товар
+# Можно: создать, обновить, просмотреть и удалить
 #
 class ItemsController < ApplicationController
-  before_action :set_category, only: %I[show create destroy]
+  before_action :set_category, only: %I[create destroy]
   before_action :set_item, only: %I[show edit update destroy]
 
-  def show
-  end
+  def show; end
 
   def create
     @item = @category.items.build(item_params)
@@ -16,12 +16,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-    if @category.items.update(item_params)
-      redirect_to @category, notice: 'Item updated'#I18n.t('controllers.items.updated')
+    if @item.update(item_params)
+      redirect_to item_path(@item),
+      notice: 'Item updated'#I18n.t('controllers.items.updated')
     else
       render :edit
     end
@@ -43,7 +43,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :weight, :description,
-                                 :quantity_item)
+    params.require(:item).permit(:name, :price, :weight, :description, :quantity_item)
   end
 end

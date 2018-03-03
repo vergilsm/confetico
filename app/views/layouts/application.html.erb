@@ -30,9 +30,9 @@
             </div>
             <div class="col-lg-2 text-center">
               <br />
-              <a href="#">
+              <a href="/carts/show">
                 <i class="fa fa-shopping-cart fa-2x cart-blue"aria-hidden="true" ></i>
-                <p>добавить в корзину</p>
+                <p>в корзене </p><p id="total_items" class="disp-inl"><%= @cart.total_items %></p><p> товаров</p>
               </a>
             </div>
             <div class="col-lg-7">
@@ -63,7 +63,7 @@
       <div class="max-width page-wrap">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-4 col-lg-3" id="list">
+            <div class="col-md-4 col-lg-3 pad-no">
               <div class="list-group">
                 <h4 class="list-group-item">Категории</h4>
                 <div class="list-group">

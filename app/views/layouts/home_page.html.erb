@@ -30,10 +30,10 @@
           </div>
           <div class="col-lg-2 text-center">
             <br />
-            <a href="#">
-              <i class="fa fa-shopping-cart fa-2x cart-blue"aria-hidden="true" ></i>
-              <p>добавить в корзину</p>
-            </a>
+              <a href="/carts/show">
+                <i class="fa fa-shopping-cart fa-2x cart-blue"aria-hidden="true" ></i>
+                <p>в корзене <%= @cart.total_items %> товаров</p>
+              </a>
           </div>
           <div class="col-lg-7">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">

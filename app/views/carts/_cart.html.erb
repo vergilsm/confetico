@@ -1,0 +1,49 @@
+<% if @cart.cart_items.presence %>
+  <% @cart.cart_items.each do |cart_item| %>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="max-width">
+          <div class="row">
+            <div class="col-lg-4">
+              <h5 class="buffer-top indent-top-sm"><%= cart_item.item.name %></h5>
+            </div>
+            <div class="col-lg-2">
+              <h5 class="buffer-top indent-top-sm"><%= cart_item.item.weight %> гр.</h5>
+            </div>
+            <div class="col-lg-2">
+              <h5 class="buffer-top indent-top-sm" id="price_cart_item_<%= cart_item.id %>"><%= cart_item.item.price %> <small><i class="fa fa-rub"></i></small></h5>
+            </div>
+            <div class="col-lg-2">
+              <%= form_for cart_item, remote: true, data: {type: :json} do |f| %>
+                <div class="col-md-11 form-group">
+                  <h5><%= f.number_field :quantity, id: 'quantity_field', class: "form-control buffer-top" %></h5>
+
+                </div>
+              <% end %>
+            </div>
+            <div class="col-lg-1 pad-no">
+              <h5 class="buffer-top indent-top-sm text-right" id="total_price_cart_item_<%= cart_item.id %>"><%= cart_item.total_price %>  </h5>
+              <p class="opac-05 text-muted text-right">итог</p>
+            </div>
+            <div class="col-lg-1 pad-l-5">
+              <i class="fa fa-rub buffer-top-lg"></i>
+            </div>
+          </div>
+        </div>
+        <%= link_to "Удалить товар", cart_item_path(cart_item), method: :delete %>
+      </li>
+    </ul>
+  <% end %>
+  <div class="row buffer-top">
+    <div class="col-lg-6">
+      <h4 class="disp-inl">К оплате:</h4> <h4 class="disp-inl" id="sub_total"><%= (@cart.sub_total) %></h4> <i class="fa fa-rub"></i>
+    </div>
+    <div class="col-lg-6">
+      <%= link_to "Очистить корзину", cart_path(@current_cart),method: :delete, data: {confirm: "Вы уверены?"}, class: "pull-right" %>
+    </div>
+  </div>
+  <br />
+  <%= link_to "Оформить заказ", "#" %><br />
+<% else %>
+  <h4><i class="fa fa-thumbs-down"></i> В вашей корзине пока нет товаров.</h4>
+<% end %>

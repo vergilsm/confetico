@@ -1,13 +1,49 @@
-<div class="table-responsive">
+<div class="container-fluid">
   <table class="table">
     <ul class="lead">
-       <li><%= @item.name %> гр.</li>
-       <li>Описание:<%= @item.description %></li>
-       <li>Вес: <%= @item.weight %> гр.</li>
-       <li>Цена: <%= @item.price %> руб.</li>
-       <li>Количество: <%= @item.quantity_item %> шт.</li>
-       <li><%= link_to 'Обновить', edit_item_path(@item.category) %></li>
-       <li><%= link_to 'Удалить', item_path, method: :delete, data: { confirm: 'Вы уверены?' } %></li>
+      <li><%= @item.name %> </li>
+      <li>Описание: <%= @item.description %></li>
+      <li>Вес: <%= @item.weight %> гр.</li>
+      <li>Цена: <%= @item.price %> руб.</li>
+      <li>Количество: <%= @item.quantity_item %> шт.</li>
+      <li><%= link_to 'Обновить', edit_item_path(@item.category) %></li>
+      <li><%= link_to 'Удалить', item_path, method: :delete, data: { confirm: 'Вы уверены?' } %></li>
+      <li>
+        <%= link_to 'добавить в корзину', cart_items_path(item_id: @item.id), class: "btn btn-primary btn-sm", id: 'add_to_cart', method: :post, remote: true, data: {toggle: "modal", target: "#myModal"} %>
+      </li>
     </ul>
   </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Товар добавлен в корзину!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="max-width">
+          <div class="row">
+            <div class="col-md-6">
+              <h5><%= @item.name %></h5>
+            </div>
+            <div class="col-md-3">
+              <h5><%= @item.weight %><small> гр</small></h5>
+            </div>
+            <div class="col-md-3">
+              <h5><%= @item.price %> <small><i class="fa fa-rub"></i></small></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Продолжить покупку</button>
+        <%= link_to "В корзину", cart_path, method: :get, class: "btn btn-primary btn-sm", data: {dismiss: "modal"} %>
+      </div>
+    </div>
+  </div>
 </div>

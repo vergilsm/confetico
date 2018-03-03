@@ -10,23 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180120212013) do
+ActiveRecord::Schema.define(version: 20180222103321) do
 
-  create_table "cartitems", force: :cascade do |t|
+  create_table "cart_items", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "cart_id"
-    t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_cartitems_on_cart_id"
-    t.index ["item_id"], name: "index_cartitems_on_item_id"
+    t.integer  "order_id"
+    t.integer  "quantity",   default: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
+    t.index ["item_id"], name: "index_cart_items_on_item_id"
+    t.index ["order_id"], name: "index_cart_items_on_order_id"
   end
 
   create_table "carts", force: :cascade do |t|
-    t.integer  "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_carts_on_order_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 20180120212013) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name",          null: false
-    t.float    "price",         null: false
-    t.float    "weight",        null: false
+    t.integer  "price",         null: false
+    t.integer  "weight",        null: false
     t.boolean  "real"
-    t.string   "description"
+    t.text     "description"
     t.integer  "quantity_item"
     t.integer  "category_id"
     t.datetime "created_at",    null: false
@@ -49,14 +49,13 @@ ActiveRecord::Schema.define(version: 20180120212013) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "user_name"
-    t.string   "phone"
-    t.string   "email"
+    t.string   "user_name",   null: false
+    t.string   "phone",       null: false
+    t.string   "email",       null: false
     t.string   "address"
-    t.float    "order_price"
-    t.float    "total_amount"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "order_price", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

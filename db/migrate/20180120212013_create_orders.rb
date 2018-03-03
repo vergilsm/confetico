@@ -1,12 +1,11 @@
 class CreateOrders < ActiveRecord::Migration[5.0]
   def change
     create_table :orders do |t|
-      t.string :user_name
-      t.string :phone
-      t.string :email
+      t.string :user_name, null: false
+      t.string :phone, null: false
+      t.string :email, null: false
       t.string :address
-      t.float  :order_price
-      t.float  :total_amount
+      t.integer  :order_price, null: false
 
       t.timestamps
     end

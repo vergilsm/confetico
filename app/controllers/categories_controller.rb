@@ -1,4 +1,5 @@
-# Класс в котором создаются категории, их можно: просматривать, удалять.
+# Категория товаров
+# Категорию можно: создать, просмотреть, удалить
 #
 class CategoriesController < ApplicationController
   before_action :set_category, only: %I[show destroy]
@@ -21,7 +22,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.create(category_params)
-    if @category.errors.empty?
+    if @category.save
       redirect_to category_path(@category), notice: 'Category created'
     else
       render :new
