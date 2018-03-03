@@ -1,0 +1,12 @@
+ru:
+  items:
+    zero:  "%{count} товаров"
+    one:   "%{count} товар"
+    few:   "%{count} товара"
+    many:  "%{count} товаров"
+
+  errors:
+    zero:  "%{count} ошибок"
+    one:   "%{count} ошибка"
+    few:   "%{count} ошибки"
+    many:  "%{count} ошибок"

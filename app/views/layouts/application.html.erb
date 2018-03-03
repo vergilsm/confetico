@@ -32,7 +32,7 @@
               <br />
               <a href="/carts/show">
                 <i class="fa fa-shopping-cart fa-2x cart-blue"aria-hidden="true" ></i>
-                <p>в корзене </p><p id="total_items" class="disp-inl"><%= @cart.total_items %></p><p> товаров</p>
+                <p id="total_items"><p class="disp-inl">в корзене </p><%= t 'items', count: @cart.total_items %></p>
               </a>
             </div>
             <div class="col-lg-7">

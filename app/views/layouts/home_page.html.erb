@@ -32,8 +32,8 @@
             <br />
               <a href="/carts/show">
                 <i class="fa fa-shopping-cart fa-2x cart-blue"aria-hidden="true" ></i>
-                <p>в корзене <%= @cart.total_items %> товаров</p>
-              </a>
+                <p id="total_items"><p class="disp-inl">в корзене </p><%= t 'items', count: @cart.total_items %></p>
+                </a>
           </div>
           <div class="col-lg-7">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
