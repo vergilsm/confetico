@@ -5,7 +5,6 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.string :phone, null: false
       t.string :email, null: false
       t.string :address
-      t.integer  :order_price, null: false
 
       t.timestamps
     end

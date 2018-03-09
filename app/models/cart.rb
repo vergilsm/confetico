@@ -1,5 +1,5 @@
 class Cart < ApplicationRecord
-  has_many   :cart_items
+  has_many   :cart_items, dependent: :destroy
   has_many   :items, through: :cart_items
 
   # Если item уже есть в корзине, то добавляем к его количеству

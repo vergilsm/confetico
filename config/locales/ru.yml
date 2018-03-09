@@ -1,4 +1,17 @@
 ru:
+  activerecord:
+    models:
+      category: 'Категория'
+      order:    'Заказ'
+    attributes:
+      category:
+        product_category: 'Наименование категории'
+      order:
+        user_name: 'Имя и фамилия'
+        phone:     'Телефон'
+        email:     'email'
+        address:   'Адрес'
+
   items:
     zero:  "%{count} товаров"
     one:   "%{count} товар"

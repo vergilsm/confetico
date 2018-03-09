@@ -1,0 +1,18 @@
+<div class="col-lg-9 text-center buffer-both">
+  <h2>Все заказы</h2>
+
+  <% @orders.each do |order| %>
+    <p>Имя Фамилия:  <%= order.user_name %></p>
+    <p>Телефон: <%= order.phone %></p>
+    <p>Email: <%= order.email %></p>
+    <p>Сумма заказа: <%= order.order_price %> rub.</p>
+    <p>Line Items: </p>
+    <ul>
+      <% order.cart_items.each do |cart_item| %>
+      <li><%= cart_item.quantity %> x <%= cart_item.item.name %> <%= cart_item.item.price %> rub.</li>
+      <% end %>
+    </ul>
+
+     <p><%= link_to 'Удалить', order_path(order), method: :delete, data: { confirm: 'Вы уверены?' } %></p>
+  <% end %>
+</div>

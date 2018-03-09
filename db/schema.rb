@@ -49,13 +49,12 @@ ActiveRecord::Schema.define(version: 20180222103321) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "user_name",   null: false
-    t.string   "phone",       null: false
-    t.string   "email",       null: false
+    t.string   "user_name",  null: false
+    t.string   "phone",      null: false
+    t.string   "email",      null: false
     t.string   "address"
-    t.integer  "order_price", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

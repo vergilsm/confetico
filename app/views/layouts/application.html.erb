@@ -22,7 +22,7 @@
           <div class="row">
             <div class="col-lg-8 text-center text-white buffer-top">
               <h2>Продаём сладости по всей стране</h2>
-              <p>Мы с вами уже много лет</p>
+              <p>Мы рады работать для вас!</p>
             </div>
             <div class="col-lg-2 text-center text-white buffer-bottom">
               <br />
@@ -32,7 +32,8 @@
               <br />
               <a href="/carts/show">
                 <i class="fa fa-shopping-cart fa-2x cart-blue"aria-hidden="true" ></i>
-                <p id="total_items"><p class="disp-inl">в корзене </p><%= t 'items', count: @cart.total_items %></p>
+                <h6>в корзине <p id="total_items" class="disp-inl"><%= t 'items', count: @cart.total_items %></p></h6>
+
               </a>
             </div>
             <div class="col-lg-7">

@@ -1,0 +1,9 @@
+<div class="col-lg-4">
+  <%= simple_form_for @order, html: {multipart: true} do |f| %>
+    <%= f.input :user_name, label: 'Ваше имя и фамилия' %>
+    <%= f.input :phone, label:'Телефон', placeholder: 'X XXX XXX XXXX' %>
+    <%= f.input :email, label:'Адрес электронной почты' %>
+    <%= f.input :address, label:'Адрес доставки' %>
+    <%= f.button :submit, 'Заказать', class: "btn btn-primary btn-sm" %> или <%= link_to 'вернуться', :back %>
+  <% end %>
+</div>
