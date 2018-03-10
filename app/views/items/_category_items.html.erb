@@ -4,6 +4,8 @@
       <li class="list-group-item"><h6><%= link_to item.name, item_path(item) %>
       Вес: <%= item.weight %> Цена: <%= item.price %></h6>
       </li>
+    <% else %>
+        <h1><%= t('controllers.items.not_found') %></h1>
     <% end %>
   </ul>
 <% end %>

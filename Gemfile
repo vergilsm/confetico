@@ -26,6 +26,11 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'font-awesome-rails'
 gem 'rails-i18n'
 
+# Для загрузки изображений
+gem 'carrierwave', '~> 1.0'
+# Для обработки изображений
+gem 'rmagick'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

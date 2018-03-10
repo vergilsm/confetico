@@ -1,7 +1,7 @@
 <% @categories.each do |category| %>
   <div class="card-deck w-50 p-3 pull-left">
     <div class="card">
-      <%= image_tag("goods/Sweets_Candy_Chocolate", class: "card-img-top") %>
+      <%= image_tag(category_picture(category), class: "card-img-top") %>
       <div class="card-footer bg-color">
         <h4><%= link_to  category.product_category, category_path(category) %></h4>
       </div>
