@@ -1,11 +1,22 @@
 <% @category.items.each do |item| %>
   <ul class="list-group list-group-flush">
     <% if item.persisted? %>
-      <li class="list-group-item"><h6><%= link_to item.name, item_path(item) %>
-      Вес: <%= item.weight %> Цена: <%= item.price %></h6>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-1">
+            <%= image_tag item_picture_thumb(item) %>
+          </div>
+          <div class="col-md-3 buffer-top-15">
+            <h5><%= link_to item.name, item_path(item) %></h5>
+          </div>
+          <div class="col-md-1 buffer-top-15 pad-no">
+            <h5><%= item.weight %> гр.</h5>
+          </div>
+          <div class="col-md-2 buffer-top-15">
+            <h5><%= item.price %> <small><i class="fa fa-rub"></i></small></h5>
+          </div>
+        </div>
       </li>
-    <% else %>
-        <h1><%= t('controllers.items.not_found') %></h1>
     <% end %>
   </ul>
 <% end %>

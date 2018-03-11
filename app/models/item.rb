@@ -7,4 +7,6 @@ class Item < ApplicationRecord
   # Цена должна быть больше нуля
   validates :price, numericality: {greater_than: 0, allow_nil: true}
   validates :name, :price, :weight, :description, presence: true
+
+  mount_uploader :picture, PictureUploader
 end

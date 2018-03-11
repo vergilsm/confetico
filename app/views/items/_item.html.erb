@@ -1,6 +1,7 @@
 <div class="container-fluid">
   <table class="table">
     <ul class="lead">
+      <li><%= image_tag item_picture(@item) %> </li>
       <li><%= @item.name %> </li>
       <li>Описание: <%= @item.description %></li>
       <li>Вес: <%= @item.weight %> гр.</li>
