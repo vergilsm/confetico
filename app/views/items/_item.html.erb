@@ -7,7 +7,7 @@
       <li>Вес: <%= @item.weight %> гр.</li>
       <li>Цена: <%= @item.price %> руб.</li>
       <li>Количество: <%= @item.quantity_item %> шт.</li>
-      <li><%= link_to 'Обновить', edit_item_path(@item.category) %></li>
+      <li><%= link_to 'Обновить', edit_item_path(@item) %></li>
       <li><%= link_to 'Удалить', item_path, method: :delete, data: { confirm: 'Вы уверены?' } %></li>
       <li>
         <%= link_to 'добавить в корзину', cart_items_path(item_id: @item.id), class: "btn btn-primary btn-sm", id: 'add_to_cart', method: :post, remote: true, data: {toggle: "modal", target: "#myModal"} %>
