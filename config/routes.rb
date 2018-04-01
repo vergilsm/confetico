@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   resources :categories, except: %I[edit update] do
     resources :items, shallow: true
   end
