@@ -1,0 +1,22 @@
+<h4 class="buffer-both">Администраторы в сети</h4>
+
+<table class="table table-hover">
+  <thead class="bg-color text-white">
+    <tr>
+      <th scope="col">id:</th>
+      <th scope="col">Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @admins.each do |admin| %>
+    <% if admin == current_admin %>
+      <tbody>
+        <tr>
+          <th scope="row"><%= admin.id %></th>
+          <td><%= admin.email %></td>
+          <td><%= link_to 'Удалить', admin_registration_path, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  <% end %>
+</table>

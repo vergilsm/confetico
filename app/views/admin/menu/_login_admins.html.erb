@@ -1,0 +1,7 @@
+<% if admin_signed_in? %>
+  <div class="pull-right">
+    <span class="text-white"><%= current_admin.email %> </span>
+    <%= link_to ' Выйти ', destroy_admin_session_path, :method => :delete, class: 'pad-l-5' %>
+    <%= link_to ' Обновить ', edit_admin_registration_path, class: 'pad-l-5' %>
+  </div>
+<% end %>

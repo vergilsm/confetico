@@ -1,0 +1,31 @@
+// Place all the styles related to the Admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.log-in {
+  border: 3px solid #6B2175;
+  margin: 5% 35% 5% 35%;
+}
+
+.log-in-header {
+  padding: 10px;
+  background-color: #6B2175;
+  color: white;
+}
+
+.log-in-body {
+  padding: 5px 40px 0px 40px;
+}
+
+.indent-bottom-sm {
+  padding-bottom: 0.3rem;
+}
+
+.log-in-btm {
+  padding-right: 120px;
+  padding-bottom: 20px;
+}
+
+.log-in-footer {
+  padding-top: 9px;
+}

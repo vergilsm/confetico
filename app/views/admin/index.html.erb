@@ -1,0 +1,23 @@
+<% title "Администраторы" %>
+
+<% if current_admin %>
+  <div class="col-lg-9 text-center buffer-both">
+    <h2>Администраторы <hr /></h2>
+
+    <div class="container color-gray">
+      <div class="row">
+        <div class="col-lg-12">
+          <%= render 'admin/menu/registration_admins' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <%= render 'admin/menu/admins_all' %>
+        </div>
+        <div class="col-lg-6">
+          <%= render 'admin/menu/admins_online' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

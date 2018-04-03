@@ -1,13 +1,19 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  layout "application"
-
   before_action :set_page
   before_action :current_cart
   before_action :cart
 
   private
+
+  def after_sign_in_path_for(resource)
+    admin_index_path
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    request.referrer
+  end
 
   def set_page
     @categories = Category.all
