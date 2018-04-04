@@ -1,8 +1,11 @@
 # Категория товаров
+# Home - root page
 # Категорию можно: создать, просмотреть, удалить
 #
 class CategoriesController < ApplicationController
-  before_action :set_category, only: %I[show destroy]
+  before_action :set_category, only: %I[show edit update destroy]
+  before_action :authenticate_admin!, except: %I[index show home]
+  layout 'devise', except: %I[index show home]
 
   def home
     render layout: 'home_page'
@@ -10,6 +13,9 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    if current_admin
+      render layout: 'devise'
+    end
   end
 
   def show
@@ -26,6 +32,17 @@ class CategoriesController < ApplicationController
       redirect_to category_path(@category), notice: 'Category created'
     else
       render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @category.update(category_params)
+      redirect_to categories_path,
+      notice: 'Category updated'#I18n.t('controllers.items.updated')
+    else
+      render :edit
     end
   end
 

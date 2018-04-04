@@ -42,17 +42,20 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-4 col-lg-3 pad-no">
-              <div class="list-group">
-                <h4 class="list-group-item">Категории</h4>
-                <div class="list-group">
+              <ul class="list-group">
+                <li class="list-group-item active">
+                  <h5><%= link_to 'Создать категорию', new_category_url %></h5>
+                </li>
+                <li class="list-group-item">
+                  <h4>Категории</h4>
+                </li>
+                <li class="list-group">
                   <% @categories.each do |category| %>
                     <%= link_to category.product_category, category,
                     class: "list-group-item list-group-item-action" %>
                   <% end %>
-                </div>
-                <p class="text-left"><%= link_to 'Создать категорию', new_category_url,
-                class: 'btn btn-primary buffer-top' %></p>
-              </div>
+                </li>
+              </ul>
             </div>
             <div class="col-lg-9">
               <%= render partial: 'partials/flash', flash: flash %>

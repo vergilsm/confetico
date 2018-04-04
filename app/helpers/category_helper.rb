@@ -6,4 +6,12 @@ module CategoryHelper
       asset_path('logo.jpg')
     end
   end
+
+  def category_picture_thumb(category)
+    if category.picture?
+      category.picture.thumb.url
+    else
+      asset_path('logo.jpg')
+    end
+  end
 end

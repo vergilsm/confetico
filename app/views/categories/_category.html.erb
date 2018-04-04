@@ -1,10 +1,37 @@
-<% @categories.each do |category| %>
-  <div class="card-deck w-40 p-3 pull-left">
-    <div class="card">
-      <%= image_tag(category_picture(category), class: "card-img-top") %>
-      <div class="card-footer bg-color">
-        <h4><%= link_to  category.product_category, category_path(category) %></h4>
+<% if current_admin %>
+  <table class="table table-hover">
+    <thead class="bg-color text-white">
+      <tr>
+        <th scope="col">Изображение</th>
+        <th scope="col">Наименование</th>
+        <th scope="col">Создана</th>
+        <th scope="col">Обновлена</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @categories.each do |category| %>
+      <tbody>
+        <tr>
+          <th scope="row"><%= image_tag(category_picture_thumb(category)) %></th>
+          <td><%= category.product_category %></td>
+          <td><%= category.created_at %></td>
+          <td><%= category.updated_at %></td>
+          <td><%= link_to 'Обновить', edit_category_path(category) %></td>
+          <td><%= link_to 'Удалить', category_path(category), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+<% else %>
+  <% @categories.each do |category| %>
+    <div class="card-deck w-40 p-3 pull-left">
+      <div class="card">
+        <%= image_tag(category_picture(category), class: "card-img-top") %>
+        <div class="card-footer bg-color">
+          <h4><%= link_to  category.product_category, category_path(category) %></h4>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
