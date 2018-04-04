@@ -12,7 +12,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <%= javascript_include_tag "application" %>
   </head>
-    <body>
+  <body>
     <% if current_admin %>
       <nav class="navbar navbar-expand-lg bg-color">
         <h4 class="navbar-brand text-white">Админ</h4>
@@ -54,12 +54,18 @@
                 class: 'btn btn-primary buffer-top' %></p>
               </div>
             </div>
+            <div class="col-lg-9">
+              <%= render partial: 'partials/flash', flash: flash %>
 
-  <% end %>
-            <%= yield %>
+              <%= yield %>
+            </div>
           </div>
         </div>
       </div>
+    <% else %>
+
+      <%= yield %>
+    <% end %>
 
     <script src="js/bootstrap.min.js"></script>
   </body>

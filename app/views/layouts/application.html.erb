@@ -77,7 +77,11 @@
               </div>
             </div>
 
-            <%= yield %>
+            <div class="col-lg-9">
+              <%= render partial: 'partials/flash', flash: flash %>
+
+              <%= yield %>
+            </div>
           </div>
         </div>
       </div>

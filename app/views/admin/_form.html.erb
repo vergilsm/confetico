@@ -1,6 +1,6 @@
 <%= simple_form_for @admin, url: admin_index_path do |f| %>
-  <%= f.input :email, required: true, autofocus: true %>
-  <%= f.input :password, label: 'Пароль', required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-  <%= f.input :password_confirmation, label: 'Подтверждение пароля', required: true %>
-  <%= f.button :submit, 'Добавить', class: "btn btn-primary btn-sm" %> или <%= link_to 'вернуться', :back %>
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+    <%= f.input :password_confirmation, required: true %>
+    <%= f.button :submit, 'Добавить', class: "btn btn-primary btn-sm" %> или <%= link_to 'вернуться', :back %>
 <% end %>

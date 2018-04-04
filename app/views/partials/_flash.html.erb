@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="col-lg-9 indent-top-sm">
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-<%= type %> alert-dismissable fade show">
+        <%= msg %>
+        <button class="close" data-dismiss="alert">x</button>
+      </div>
+    <% end %>
+  </div>
+</div>

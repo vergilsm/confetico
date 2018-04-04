@@ -1,10 +1,9 @@
 <% title "Категория-#{@category.product_category}" %>
-<div class="col-lg-9">
-  <h2 class="buffer-both text-center"><%= @category.product_category %> <hr /></h2>
 
-  <%= render partial: 'items/category_items' %>
+<h2 class="buffer-both text-center"><%= @category.product_category %> <hr /></h2>
 
-  <div class="col-md-6 col-lg-4 pull-right">
-    <%= render partial: 'items/form', locals: {item: @item || @category.items.build} %>
-  </div>
+<%= render partial: 'items/category_items' %>
+
+<div class="col-md-6 col-lg-4 pull-right">
+  <%= render partial: 'items/form', locals: {item: @item || @category.items.build} %>
 </div>
