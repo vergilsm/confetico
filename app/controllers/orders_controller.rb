@@ -3,6 +3,9 @@
 # Создать заказ
 # Удалить заказ
 class OrdersController < ApplicationController
+  before_action :authenticate_admin!, except: %I[new create]
+  layout 'devise', except: %I[new create]
+
   def index
     @orders = Order.all
   end
@@ -30,7 +33,7 @@ class OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
-    redirect_to root_path
+    redirect_to action: 'index'
   end
 
   private

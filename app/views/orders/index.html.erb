@@ -1,20 +1,39 @@
 <% title "Все заказы" %>
 
 <div class="text-center buffer-both">
-  <h2>Все заказы</h2>
+  <h2>Все заказы <hr /></h2>
 
-  <% @orders.each do |order| %>
-    <p>Имя Фамилия:  <%= order.user_name %></p>
-    <p>Телефон: <%= order.phone %></p>
-    <p>Email: <%= order.email %></p>
-    <p>Сумма заказа: <%= order.order_price %> rub.</p>
-    <p>Line Items: </p>
-    <ul>
-      <% order.cart_items.each do |cart_item| %>
-      <li><%= cart_item.quantity %> x <%= cart_item.item.name %> <%= cart_item.item.price %> rub.</li>
-      <% end %>
-    </ul>
+  <table class="table table-hover">
+    <thead class="bg-color text-white">
+      <tr>
+        <th scope="col">Имя фамилия</th>
+        <th scope="col">Тел</th>
+        <th scope="col">Email</th>
+        <th scope="col">Сумма заказа</th>
+        <th scope="col">Заказ</th>
+        <th scope="col">Создан</th>
+        <th></th>
+      </tr>
+    </thead>
 
-     <p><%= link_to 'Удалить', order_path(order), method: :delete, data: { confirm: 'Вы уверены?' } %></p>
-  <% end %>
+    <% @orders.each do |order| %>
+      <tbody>
+        <tr>
+          <th scope="row"><%= order.user_name %></th>
+          <td><%= order.phone %></td>
+          <td><%= order.email %></td>
+          <td><%= order.order_price %> руб.</td>
+          <td>
+            <ul>
+              <% order.cart_items.each do |cart_item| %>
+                <li><%= cart_item.quantity %> x <%= cart_item.item.name %> <%= cart_item.item.price %> руб.</li>
+              <% end %>
+            </ul>
+          </td>
+          <td><%= order.created_at %></td>
+          <td><%= link_to 'Удалить', order_path(order), method: :delete, data: { confirm: 'Вы точно хотите удалить заказ?' }%></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
 </div>
