@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <p class="pull-right"><%= link_to 'Добавить товар',
+                                new_category_item_path(@category) %></p>
+    </div>
+
+    <table class="table table-hover">
+      <thead class="bg-color text-white">
+        <tr>
+          <th scope="col">Фото</th>
+          <th scope="col">Название</th>
+          <th scope="col">Описание</th>
+          <th scope="col">Вес</th>
+          <th scope="col">Цена</th>
+          <th scope="col">Кол-во</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <% @category.items.each do |item| %>
+        <% if item.persisted? %>
+          <tbody>
+            <tr>
+              <th scope="row"><%= image_tag item_picture_thumb(item) %></th>
+              <td><%= item.name %></td>
+              <td><%= item.description %></td>
+              <td><%= item.weight %></td>
+              <td><%= item.price %></td>
+              <td><%= item.quantity_item %></td>
+              <td><%= link_to 'Обновить', edit_item_path(item) %></td>
+              <td><%= link_to 'Удалить', item_path, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>

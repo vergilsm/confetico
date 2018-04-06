@@ -1,4 +1,6 @@
-<% title "#{@item.name}" %>
+<% title "Товар- #{@item.name}" %>
+
 <div class="buffer-top">
-  <%= render partial: 'item' %>
+  <h2 class="buffer-both text-center"><%= @item.name %> <hr /></h2>
+    <%= render partial: 'item', locals: {item: @item} %>
 </div>

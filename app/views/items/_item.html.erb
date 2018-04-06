@@ -1,22 +1,26 @@
 <div class="container-fluid">
-  <table class="table">
-    <ul class="lead">
-      <li><%= image_tag item_picture(@item) %> </li>
-      <li><%= real_item(@item) %>
-
-      </li>
-      <li><%= @item.name %> </li>
-      <li>Описание: <%= @item.description %></li>
-      <li>Вес: <%= @item.weight %> гр.</li>
-      <li>Цена: <%= @item.price %> руб.</li>
-      <li>Количество: <%= @item.quantity_item %> шт.</li>
-      <li><%= link_to 'Обновить', edit_item_path(@item) %></li>
-      <li><%= link_to 'Удалить', item_path, method: :delete, data: { confirm: 'Вы уверены?' } %></li>
-      <li>
-        <%= link_to 'добавить в корзину', cart_items_path(item_id: @item.id), class: "btn btn-primary btn-sm", id: 'add_to_cart', method: :post, remote: true, data: {toggle: "modal", target: "#myModal"} %>
-      </li>
-    </ul>
-  </table>
+  <div class="row">
+    <div class="col-lg-4">
+      <table class="table">
+        <ul class="lead">
+          <li><%= image_tag item_picture(@item) %> </li>
+          <li class="buffer-top"><%= @item.description %></li>
+          <li class="buffer-top">
+            <%= link_to 'добавить в корзину', cart_items_path(item_id: @item.id), class: "btn btn-primary", id: 'add_to_cart', method: :post, remote: true, data: {toggle: "modal", target: "#myModal"} %>
+          </li>
+        </ul>
+      </table>
+    </div>
+    <div>
+      <table class="table">
+        <ul class="lead">
+          <h4><li><%= real_item(@item) %></li></h4>
+          <li class="buffer-top">Вес: <%= @item.weight %> гр.</li>
+          <li class="buffer-top">Цена: <%= @item.price %> руб.</li>
+        </ul>
+      </table>
+    </div>
+  </div>
 </div>
 
 <!-- Modal -->

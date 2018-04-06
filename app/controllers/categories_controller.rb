@@ -20,6 +20,9 @@ class CategoriesController < ApplicationController
 
   def show
     @item = @category.items.build(params[:item])
+    if current_admin
+      render layout: 'devise'
+    end
   end
 
   def new

@@ -2,10 +2,16 @@
 # Можно: создать, обновить, просмотреть и удалить
 #
 class ItemsController < ApplicationController
-  before_action :set_category, only: %I[create destroy]
+  before_action :set_category, only: %I[new create edit update destroy]
   before_action :set_item, only: %I[show edit update destroy]
+  before_action :authenticate_admin!, except: %I[show]
+  layout 'devise', except: %I[show]
 
   def show; end
+
+  def new
+    @item = @category.items.build
+  end
 
   def create
     @item = @category.items.build(item_params)
@@ -20,7 +26,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to item_path(@item),
+      redirect_to category_path,
       notice: 'Item updated'#I18n.t('controllers.items.updated')
     else
       render :edit
