@@ -12,11 +12,15 @@ class CartItemsController < ApplicationController
     cart = @current_cart
     cart.add_item(item)
 
-    if cart.save
-      redirect_to cart_path(@current_cart)
-    else
-      flash[:error] = 'Не удалось добавить товар в карзину'
-      redirect_to item_path(item)
+    respond_to do |format|
+      if cart.save
+        flash[:notice] = 'Товар добавлен в корзину!'
+        format.html {redirect_to cart_path(@current_cart)}
+        format.js
+      else
+        flash[:error] = 'Не удалось добавить товар в карзину'
+        redirect_to item_path(item)
+      end
     end
   end
 

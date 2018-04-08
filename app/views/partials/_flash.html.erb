@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="col-lg-9 indent-top-sm">
+  <div class="indent-top-sm">
     <% flash.each do |type, msg| %>
       <div class="alert alert-<%= type %> alert-dismissable fade show">
         <%= msg %>
-        <button class="close" data-dismiss="alert">x</button>
+        <button class="close" data-dismiss="alert">&times;</button>
       </div>
     <% end %>
   </div>
