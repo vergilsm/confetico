@@ -10,4 +10,13 @@ class Item < ApplicationRecord
   validates_numericality_of :quantity_item, greater_than_or_equal_to: 0
 
   mount_uploader :picture, PictureUploader
+
+  # Есть ли товар в наличии?
+  def real_item
+    if self.quantity_item <= 0
+      false
+    else
+      true
+    end
+  end
 end

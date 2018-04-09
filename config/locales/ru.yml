@@ -20,9 +20,6 @@ ru:
     items:
       not_found: 'В этой категории пока нет товаров'
 
-  real_yes: 'Есть в наличии'
-  real_no:  'Нет в наличии'
-
   items:
     zero:  "%{count} товаров"
     one:   "%{count} товар"
