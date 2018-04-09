@@ -20,12 +20,22 @@ class Order < ApplicationRecord
     sum
   end
 
-  # После создания заказа, вычитаем количество заказанное пользователем
+  # После создания заказа:
+  # Проверяем что-бы количество заказанное пользователем
+  # не привышало общее количество товара
+  # Вычитаем количество заказанное пользователем
   # от общего количества данного товара
   def minus_quantity_item
     self.cart_items.each do |cart_item|
       item = cart_item.item
-      item.quantity_item = item.quantity_item - cart_item.quantity
+
+      if cart_item.quantity > item.quantity_item
+        cart_item.quantity = item.quantity_item
+        item.quantity_item = item.quantity_item - cart_item.quantity
+        cart_item.save
+      else
+        item.quantity_item = item.quantity_item - cart_item.quantity
+      end
       item.save
     end
   end
