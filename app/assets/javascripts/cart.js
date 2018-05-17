@@ -8,6 +8,19 @@ $(document).ajaxSuccess(function (event, xhr, settings) {
     // Цена нескольких единиц одного товара
     $('#total_price_cart_item_' + cart_item_id).text(quantity * price);
 
+    // Сколько всего единиц одного товара
+    var total_quantity_item = $('#total_quantity_item_' + cart_item_id).text();
+
+    var form = document.querySelector('#form_' + cart_item_id);
+
+    $('#form_' + cart_item_id).keydown(function(e) {
+      if (e.keyCode === 13 && quantity > total_quantity_item) {
+        $('.show_limit_quantity_item').fadeIn({duration: 2000});
+        $('.show_limit_quantity_item').fadeOut({duration: 4000});
+      }
+        quantity = total_quantity_item;
+    });
+
     // Общее количество товаров в корзине
     var quantity_all = document.querySelectorAll('#quantity_field');
     var quantity_arr = Array.prototype.slice.call(quantity_all);

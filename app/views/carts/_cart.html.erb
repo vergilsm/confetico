@@ -1,5 +1,6 @@
 <% if @cart.cart_items.presence %>
   <% @cart.cart_items.each do |cart_item| %>
+    <p id="id" style="display: none;"><%= cart_item.id %></p>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
         <div class="max-width">
@@ -14,10 +15,10 @@
               <h5 class="buffer-top indent-top-sm" id="price_cart_item_<%= cart_item.id %>"><%= cart_item.item.price %> <small><i class="fa fa-rub"></i></small></h5>
             </div>
             <div class="col-lg-2">
-              <%= form_for cart_item, remote: true, data: {type: :json} do |f| %>
+              <%= form_for cart_item, html: {id: "form_#{cart_item.id}"}, remote: true, data: {type: :json} do |f| %>
                 <div class="col-md-11 form-group">
-                  <h5><%= f.number_field :quantity, id: 'quantity_field', class: "form-control buffer-top" %></h5>
-
+                  <h5><%= f.number_field :quantity, id: "quantity_field", class: "form-control buffer-top" %></h5>
+                  <p class="show_limit_quantity_item">Осталось <%= t 'items', count: cart_item.item.quantity_item %></p>
                 </div>
               <% end %>
             </div>
@@ -27,10 +28,17 @@
             </div>
             <div class="col-lg-1 pad-l-5">
               <i class="fa fa-rub buffer-top-lg"></i>
+              <div id="total_quantity_item_<%= cart_item.id %>" style="opacity: 0;">
+                <%= cart_item.item.quantity_item %>
+              </div>
             </div>
           </div>
         </div>
-        <%= link_to "Удалить товар", cart_item_path(cart_item), method: :delete %>
+        <div class="row">
+          <div class="col-lg-4">
+            <%= link_to "Удалить товар", cart_item_path(cart_item), method: :delete %>
+          </div>
+        </div>
       </li>
     </ul>
   <% end %>

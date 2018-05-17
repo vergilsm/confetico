@@ -2,6 +2,33 @@
 
 <div class="buffer-top">
   <h2 class="buffer-both text-center">Оформить заказ<hr /></h2>
+  <div class="row">
+    <div class="col-lg-4">
+      <%= render 'form' %>
+    </div>
 
-  <%= render 'form' %>
+    <div class="col-lg-8">
+      <h4 class="text-center">Ваш заказ <hr /></h4>
+
+      <ul>
+        <% @cart.cart_items.each do |cart_item| %>
+          <li class="buffer-both">
+            <div class="row">
+              <div class="col-lg-1">
+                <%= image_tag item_picture_thumb(cart_item.item) %>
+              </div>
+              <div class="col-lg-6">
+                <h5 class="buffer-top-15 pad-l-5">
+                  <%= cart_item.quantity %> x <%= cart_item.item.name %> <%= cart_item.item.price %> <small><i class="fa fa-rub"></i></small>
+                </h5>
+              </div>
+            </div>
+          </li>
+
+        <% end %>
+      </ul>
+
+      <h5 class="buffer-both pad-l-40">Сумма заказа: <%= @cart.sub_total %> <small><i class="fa fa-rub"></i></small></h5>
+    </div>
+  </div>
 </div>

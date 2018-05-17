@@ -8,7 +8,6 @@ class Order < ApplicationRecord
   validates :address, length: {maximum: 150}
 
   after_create :minus_quantity_item
-
   # Сумма всего заказа
   def order_price
     sum = 0
@@ -20,22 +19,12 @@ class Order < ApplicationRecord
     sum
   end
 
-  # После создания заказа:
-  # Проверяем что-бы количество заказанное пользователем
-  # не привышало общее количество товара
-  # Вычитаем количество заказанное пользователем
+  # После создания заказа, вычитаем количество заказанное пользователем
   # от общего количества данного товара
   def minus_quantity_item
     self.cart_items.each do |cart_item|
       item = cart_item.item
-
-      if cart_item.quantity > item.quantity_item
-        cart_item.quantity = item.quantity_item
-        item.quantity_item = item.quantity_item - cart_item.quantity
-        cart_item.save
-      else
-        item.quantity_item = item.quantity_item - cart_item.quantity
-      end
+      item.quantity_item = item.quantity_item - cart_item.quantity
       item.save
     end
   end
