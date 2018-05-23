@@ -23,7 +23,20 @@ class AdminController < ApplicationController
     end
   end
 
+  def destroy
+    @admin.destroy
+    notify_admins(@admin)
+  end
+
   private
+
+  def notify_admins(admin)
+    all_admins_emails = Admin.pluck(:email)
+
+    all_admins_emails.each do |mail|
+      AdminMailer.admin_destroyed(admin, mail).deliver
+    end
+  end
 
   def set_admin
     @admin = current_admin
