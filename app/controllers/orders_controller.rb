@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
     end
 
     if @order.save
+      OrderMailer.created_order(@order).deliver
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       redirect_to root_path
