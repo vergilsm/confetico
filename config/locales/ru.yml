@@ -17,7 +17,15 @@ ru:
         quantity_item: 'Количество товара'
 
   controllers:
+    admin:
+      created: 'Добавлен новый администратор'
+    categories:
+      created: 'Категория создана!'
+      updated: 'Категория обновлена!'
     items:
+      created: 'Товар создан!'
+      updated: 'Товар обновлен!'
+      destroyed: 'Товар удален!'
       not_found: 'В этой категории пока нет товаров'
 
   items:

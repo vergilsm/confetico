@@ -32,7 +32,8 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.create(category_params)
     if @category.save
-      redirect_to category_path(@category), notice: 'Category created'
+      redirect_to category_path(@category),
+      notice: I18n.t('controllers.categories.created')
     else
       render :new
     end
@@ -43,7 +44,7 @@ class CategoriesController < ApplicationController
   def update
     if @category.update(category_params)
       redirect_to categories_path,
-      notice: 'Category updated'#I18n.t('controllers.items.updated')
+      notice: I18n.t('controllers.categories.updated')
     else
       render :edit
     end

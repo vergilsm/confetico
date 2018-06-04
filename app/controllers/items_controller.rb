@@ -20,7 +20,8 @@ class ItemsController < ApplicationController
   def create
     @item = @category.items.build(item_params)
     if @item.save
-      redirect_to @category, notice: 'Item created'
+      redirect_to @category,
+        notice: I18n.t('controllers.items.created')
     else
       render 'categories/show'
     end
@@ -31,7 +32,7 @@ class ItemsController < ApplicationController
   def update
     if @item.update(item_params)
       redirect_to category_path(@item.category_id),
-      notice: 'Item updated'#I18n.t('controllers.items.updated')
+      notice: I18n.t('controllers.items.updated')
     else
       render :edit
     end
@@ -39,7 +40,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to category_path
+    redirect_to category_path, notice: I18n.t('controllers.items.destroyed')
   end
 
   private
