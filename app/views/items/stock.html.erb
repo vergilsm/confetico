@@ -1,6 +1,10 @@
-<% @category.items.each do |item| %>
-  <div class="card-deck w-25 p-2 pull-left">
-    <% if item.persisted? %>
+<% title "Акции" %>
+
+<h2 class="buffer-both text-center">Товары по акции <hr /></h2>
+
+<div class="card-deck w-25 p-2 pull-left">
+  <% @items.each do |item| %>
+    <% if item.stock_price%>
       <div class="card">
         <%= image_tag(item_picture(item), class: "card-img-top") %>
         <div class="card-footer bg-color">
@@ -11,16 +15,12 @@
                 <h5><%= item.weight %> гр.</h5>
               </div>
               <div class="col-md-6 cart-light-blue">
-                <% if item.price %>
-                  <h5><%= item.price %> <small><i class="fa fa-rub"></i></small></h5>
-                <% else %>
-                  <h5><%= item.stock_price %> <small><i class="fa fa-rub"></i></small></h5>
-                <% end %>
+                <h5><%= item.stock_price %> <small><i class="fa fa-rub"></i></small></h5>
               </div>
             </div>
           </div>
         </div>
       </div>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>

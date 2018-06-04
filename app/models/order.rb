@@ -12,10 +12,16 @@ class Order < ApplicationRecord
   def order_price
     sum = 0
     self.cart_items.each do |cart_item|
-      all_items_price = cart_item.item.price * cart_item.quantity
+      if cart_item.item.price
+        all_items_price = cart_item.item.price * cart_item.quantity
+      else
+        all_items_price = cart_item.item.stock_price * cart_item.quantity
+      end
+
       sum += all_items_price
       self.save
     end
+
     sum
   end
 

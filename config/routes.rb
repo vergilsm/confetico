@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: 'categories#home'
 
   resources :categories do
-    resources :items, shallow: true
+    resources :items, shallow: true do
+      get :stock
+    end
   end
 
   resources :admin, controller: 'admin'

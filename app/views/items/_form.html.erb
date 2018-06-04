@@ -1,6 +1,7 @@
 <%= simple_form_for [@category, @item] do |f| %>
   <%= f.input   :name, label:'Наименование товара' %>
   <%= f.input   :price, label:'Цена' %>
+  <%= f.input   :stock_price, label:'Цена по акции' %>
   <%= f.input   :weight, label:'Вес' %>
   <%= f.input   :description, label:'Описание' %>
   <%= f.input   :quantity_item, label:'Количество' %>

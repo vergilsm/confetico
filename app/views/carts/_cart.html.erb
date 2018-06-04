@@ -12,7 +12,11 @@
               <h5 class="buffer-top indent-top-sm"><%= cart_item.item.weight %> гр.</h5>
             </div>
             <div class="col-lg-2">
-              <h5 class="buffer-top indent-top-sm" id="price_cart_item_<%= cart_item.id %>"><%= cart_item.item.price %> <small><i class="fa fa-rub"></i></small></h5>
+              <% if cart_item.item.price %>
+                <h5 class="buffer-top indent-top-sm" id="price_cart_item_<%= cart_item.id %>"><%= cart_item.item.price %> <small><i class="fa fa-rub"></i></small></h5>
+              <% else %>
+                <h5 class="buffer-top indent-top-sm" id="price_cart_item_<%= cart_item.id %>"><%= cart_item.item.stock_price %> <small><i class="fa fa-rub"></i></small></h5>
+              <% end %>
             </div>
             <div class="col-lg-2">
               <%= form_for cart_item, html: {id: "form_#{cart_item.id}"}, remote: true, data: {type: :json} do |f| %>

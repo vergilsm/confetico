@@ -19,7 +19,11 @@
               </div>
               <div class="col-lg-6">
                 <h5 class="buffer-top-15 pad-l-5">
-                  <%= cart_item.quantity %> x <%= cart_item.item.name %> <%= cart_item.item.price %> <small><i class="fa fa-rub"></i></small>
+                  <% if cart_item.item.price %>
+                    <%= cart_item.quantity %> x <%= cart_item.item.name %> <%= cart_item.item.price %> <small><i class="fa fa-rub"></i></small>
+                  <% else %>
+                    <%= cart_item.quantity %> x <%= cart_item.item.name %> <%= cart_item.item.stock_price %> <small><i class="fa fa-rub"></i></small>
+                  <% end %>
                 </h5>
               </div>
             </div>

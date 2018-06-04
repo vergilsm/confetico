@@ -7,7 +7,11 @@ class CartItem < ApplicationRecord
 
   # Стоимость нескольких единиц одного товара
   def total_price
-    self.quantity * self.item.price
+    if self.item.price
+      self.quantity * self.item.price
+    else
+      self.quantity * self.item.stock_price
+    end
   end
 
   # Не даем пользователю заказать товаров больше чем есть в наличии

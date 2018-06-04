@@ -4,10 +4,14 @@
 class ItemsController < ApplicationController
   before_action :set_category, only: %I[new create destroy]
   before_action :set_item, only: %I[show edit update destroy]
-  before_action :authenticate_admin!, except: %I[show]
-  layout 'devise', except: %I[show]
+  before_action :authenticate_admin!, except: %I[show stock]
+  layout 'devise', except: %I[show stock]
 
   def show; end
+
+  def stock
+    @items = Item.all
+  end
 
   def new
     @item = @category.items.build
@@ -49,6 +53,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :weight, :description, :quantity_item, :picture)
+    params.require(:item).permit(:name, :price, :weight, :description,
+                                 :quantity_item, :picture, :stock_price)
   end
 end

@@ -26,7 +26,13 @@
             <% end %>
           </h4>
           <li class="buffer-top">Вес: <%= @item.weight %> гр.</li>
-          <li class="buffer-top">Цена: <%= @item.price %> <small><i class="fa fa-rub"></i></small></li>
+          <li class="buffer-top">
+            <% if @item.price %>
+              Цена: <%= @item.price %> <small><i class="fa fa-rub"></i></small>
+            <% else %>
+              Цена по акции: <%= @item.stock_price %> <small><i class="fa fa-rub"></i></small>
+            <% end %>
+          </li>
         </ul>
       </table>
     </div>
