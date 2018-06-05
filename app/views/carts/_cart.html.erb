@@ -47,15 +47,15 @@
     </ul>
   <% end %>
   <div class="row buffer-top">
-    <div class="col-lg-6">
+    <div class="col-lg-6 pad-l-30">
       <h4 class="disp-inl">К оплате:</h4> <h4 class="disp-inl" id="sub_total"><%= (@cart.sub_total) %></h4> <i class="fa fa-rub"></i>
     </div>
     <div class="col-lg-6">
-      <%= link_to "Очистить корзину", cart_path(@current_cart),method: :delete, data: {confirm: "Вы уверены?"}, class: "pull-right" %>
+      <%= link_to "Очистить корзину", cart_path(@current_cart),method: :delete, data: {confirm: "Вы уверены?"}, class: "pull-right pad-r-15" %>
     </div>
   </div>
   <br />
-  <%= link_to "Оформить заказ", new_order_path %><br />
+  <%= link_to "Оформить заказ", new_order_path, class: "pad-l-15" %><br />
 <% else %>
   <h4><i class="fa fa-thumbs-down"></i> В вашей корзине пока нет товаров.</h4>
 <% end %>
