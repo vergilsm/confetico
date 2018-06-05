@@ -13,77 +13,14 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-color">
-      <%= image_tag("logo", :class => "navbar-brand img-logo") %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 text-center text-white buffer-top">
-            <h2>Продаём сладости по всей стране</h2>
-            <p>Мы с вами уже много лет</p>
-          </div>
-          <div class="col-lg-2 text-center text-white buffer-bottom">
-            <br />
-            <p><i class="fa fa-phone"></i> 8 800 100 10 10</p>
-          </div>
-          <div class="col-lg-2 text-center">
-            <br />
-              <a href="/carts/show">
-                <i class="fa fa-shopping-cart fa-2x cart-blue"aria-hidden="true" ></i>
-                <h6>Товаров <p id="total_items" class="disp-inl"><%= @cart.total_items %></h6>
-              </a>
-          </div>
-          <div class="col-lg-7">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <%= link_to 'Главная', root_path, class: "nav-link" %><span class="sr-only">(current)</span>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'О компании', deliveries_company_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'Товары', categories_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <a href="/deliveries/show" class="nav-link">Доставка</a>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'Акции', item_stock_path(:item_id), class: "nav-link" %>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+
+    <%= render partial: 'layouts/menu/nav' %>
 
     <div class="max-width">
-
       <%= yield %>
     </div>
 
-    <footer>
-      <div class="container-fluid bg-color text-white">
-        <div class="row">
-          <div class="col-lg-2 buffer-top text-center">
-            <small class="text-center">Сайт создал Дмитрий Смирнов vergil.sm@yandex.ru</small>
-          </div>
-          <div class="col-lg-6 buffer-top text-center">
-            <p>Заказать распечатку прайс-листа можно здесь: confetico@example.com</p>
-            <p>Обратная связь: confsupport@example.com</p>
-          </div>
-          <div class="col-lg-2 text-center buffer-both">
-            <h5><i class="fa fa-phone"></i> 8 800 100 10 10</h5>
-          </div>
-          <div class="col-lg-2 text-center buffer-top">
-            <p>Company @confetico</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%= render partial: 'layouts/menu/footer' %>
 
     <script src="js/bootstrap.min.js"></script>
   </body>
