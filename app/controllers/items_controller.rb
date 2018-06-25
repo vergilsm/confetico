@@ -39,8 +39,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @category = @item.category
     @item.destroy
-    redirect_to category_path, notice: I18n.t('controllers.items.destroyed')
+    redirect_to category_path(@category.id), notice: I18n.t('controllers.items.destroyed')
   end
 
   private

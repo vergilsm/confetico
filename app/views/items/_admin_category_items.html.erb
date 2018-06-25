@@ -34,7 +34,7 @@
               <% end %>
               <td><%= item.quantity_item %></td>
               <td><%= link_to 'Обновить', edit_item_path(item) %></td>
-              <td><%= link_to 'Удалить', item_path, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+              <td><%= link_to 'Удалить', item_path(item.id), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
             </tr>
           </tbody>
         <% end %>
