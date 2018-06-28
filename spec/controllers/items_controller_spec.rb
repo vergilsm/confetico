@@ -30,13 +30,18 @@ RSpec.describe ItemsController, type: :controller do
     end
 
     context 'POST create' do
+      let(:attr) do
+        { name: 'Шоколадка', weight: 110, price: 100, picture: nil,
+          description: 'good', quantity_item: 15 }
+      end
+
       it 'redirects to category if validations pass' do
-        post :create, params: { category_id: category.id, item: { name: 'Шоколадка' }},
+        post :create, params: { category_id: category.id, item: attr },
                       flash: { notice: 'Item created' }
 
         item = assigns(:item)
 
-        expect(response.status).to eq 200
+        expect(response).to redirect_to category_path(item.category.id)
       end
 
       it 'render new page again if validations faild' do
