@@ -6,7 +6,7 @@ $(document).ajaxSuccess(function (event, xhr, settings) {
     var price = $('#price_cart_item_' + cart_item_id).text();
 
     // Цена нескольких единиц одного товара
-    $('#total_price_cart_item_' + cart_item_id).text(quantity * price);
+    $('#subtotal_cart_item_' + cart_item_id).text(quantity * price);
 
     // Сколько всего единиц одного товара
     var total_quantity_item = $('#total_quantity_item_' + cart_item_id).text();
@@ -35,13 +35,13 @@ $(document).ajaxSuccess(function (event, xhr, settings) {
     $("#total_items").text(total_items);
 
     // Общая сумма заказа
-    var sub_total_arr = $('[id*=total_price_cart_item]').map(function () {
+    var total_price_arr = $('[id*=total_price_cart_item]').map(function () {
        return parseInt($(this).text());
     }).toArray();
 
-    var sub_total = sub_total_arr.reduce(function (previousValue, currentItem, index) {
+    var total_price = total_price_arr.reduce(function (previousValue, currentItem, index) {
        return previousValue + currentItem
     });
 
-    $('#sub_total').text(sub_total);
+    $('#total_price').text(total_price);
 });

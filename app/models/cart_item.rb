@@ -6,11 +6,11 @@ class CartItem < ApplicationRecord
   before_save :limit_quantity
 
   # Стоимость нескольких единиц одного товара
-  def total_price
-    if self.item.price
-      self.quantity * self.item.price
+  def subtotal
+    if item.price
+      quantity * item.price
     else
-      self.quantity * self.item.stock_price
+      quantity * item.stock_price
     end
   end
 

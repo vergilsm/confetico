@@ -9,12 +9,12 @@ RSpec.describe CartItem, type: :model do
     expect(cart_item).to be_truthy
   end
 
-  it 'total_price' do
+  it 'subtotal' do
     item.save
     cart_item.save
     total = cart_item.quantity * item.price
 
-    expect(cart_item.total_price).to eq total
+    expect(cart_item.subtotal).to eq total
   end
 
   it 'limit quantity' do

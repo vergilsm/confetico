@@ -21,14 +21,14 @@ RSpec.describe Cart, type: :model do
     expect(cart.cart_items.length).to eq 1
   end
 
-  it "sub total" do
+  it "total price" do
     item.save
     cart_item.save
 
     cart.add_item(item)
     total_price = cart_item.quantity * item.price
 
-    expect(cart.sub_total).to eq total_price
+    expect(cart.total_price).to eq total_price
   end
 
   it "total items" do

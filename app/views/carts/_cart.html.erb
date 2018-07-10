@@ -27,7 +27,7 @@
               <% end %>
             </div>
             <div class="col-lg-1 pad-no">
-              <h5 class="buffer-top indent-top-sm text-right" id="total_price_cart_item_<%= cart_item.id %>"><%= cart_item.total_price %>  </h5>
+              <h5 class="buffer-top indent-top-sm text-right" id="subtotal_cart_item_<%= cart_item.id %>"><%= cart_item.subtotal %>  </h5>
               <p class="opac-05 text-muted text-right">итог</p>
             </div>
             <div class="col-lg-1 pad-l-5">
@@ -48,7 +48,7 @@
   <% end %>
   <div class="row buffer-top">
     <div class="col-lg-6 pad-l-30">
-      <h4 class="disp-inl">К оплате:</h4> <h4 class="disp-inl" id="sub_total"><%= (@cart.sub_total) %></h4> <i class="fa fa-rub"></i>
+      <h4 class="disp-inl">К оплате:</h4> <h4 class="disp-inl" id="total_price"><%= (@cart.total_price) %></h4> <i class="fa fa-rub"></i>
     </div>
     <div class="col-lg-6">
       <%= link_to "Очистить корзину", cart_path(@current_cart),method: :delete, data: {confirm: "Вы уверены?"}, class: "pull-right pad-r-15" %>
