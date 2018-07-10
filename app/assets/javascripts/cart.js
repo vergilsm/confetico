@@ -13,9 +13,9 @@ $(document).ajaxSuccess(function (event, xhr, settings) {
 
     var form = document.querySelector('#form_' + cart_item_id);
 
-    $('#form_' + cart_item_id).keydown(function(e) {
-      if (e.keyCode === 13 && quantity > total_quantity_item) {
-        $('.show_limit_quantity_item').fadeIn({duration: 2000});
+    $('#form_' + cart_item_id).click(function() {
+      if (quantity > total_quantity_item) {
+        $('.show_limit_quantity_item').slideIn({duration: 1000});
         $('.show_limit_quantity_item').fadeOut({duration: 4000});
       }
         quantity = total_quantity_item;

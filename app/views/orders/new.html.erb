@@ -11,7 +11,7 @@
       <h4 class="text-center">Ваш заказ <hr /></h4>
 
       <ul>
-        <% @cart.cart_items.each do |cart_item| %>
+        <% @current_cart.cart_items.each do |cart_item| %>
           <li class="buffer-both">
             <div class="row">
               <div class="col-lg-1">
@@ -32,7 +32,7 @@
         <% end %>
       </ul>
 
-      <h5 class="buffer-both pad-l-40">Сумма заказа: <%= @cart.sub_total %> <small><i class="fa fa-rub"></i></small></h5>
+      <h5 class="buffer-both pad-l-40">Сумма заказа: <%= @current_cart.sub_total %> <small><i class="fa fa-rub"></i></small></h5>
     </div>
   </div>
 </div>
