@@ -18,6 +18,8 @@
 !/tmp/.keep
 .rake_tasks~
 /public/uploads/
+/config/database.yml
+/config/secrets.yml
 
 # Ignore Byebug command history file.
 .byebug_history
