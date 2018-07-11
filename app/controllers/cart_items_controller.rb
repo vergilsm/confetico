@@ -1,8 +1,3 @@
-# Связующий, между корзиной и товаром контроллер
-# Можно создать cartitem тем самым добавить товар в корзину,
-# изменить количество(quantity) товара,
-# удалить cartitem
-#
 class CartItemsController < ApplicationController
   before_action :current_cart, only: %I[update create destroy]
   before_action :set_cart_item, only: %I[update destroy]
@@ -14,7 +9,7 @@ class CartItemsController < ApplicationController
 
     respond_to do |format|
       if cart.save
-        format.html {redirect_to cart_path(@current_cart)}
+        format.html { redirect_to cart_path(@current_cart) }
         format.js
       else
         redirect_to item_path(item)
@@ -26,12 +21,9 @@ class CartItemsController < ApplicationController
     @cart_item.update_attributes(cart_item_params)
 
     respond_to do |format|
-      if @cart_item.save
-        format.html {redirect_to cart_path(@current_cart)}
-        format.json {render json: @cart_item}
-      else
-        format.html {redirect_to cart_path(@current_cart)}
-      end
+      @cart_item.save
+      format.html { redirect_to cart_path(@current_cart) }
+      format.json { render json: {cart_item: CartItemSerializer.new(@cart_item)} }
     end
   end
 

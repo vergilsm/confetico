@@ -7,8 +7,7 @@ class AdminController < ApplicationController
     @admins = Admin.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @admin = Admin.new
@@ -18,7 +17,7 @@ class AdminController < ApplicationController
     @admin = Admin.new(admin_params)
     if @admin.save
       redirect_to admin_path(@admin),
-      notice: I18n.t('controllers.admin.created')
+                  notice: I18n.t('controllers.admin.created')
     else
       render :new
     end

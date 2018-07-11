@@ -1,5 +1,3 @@
-# Корзина. Можно просмотреть или удалить корзину
-#
 class CartsController < ApplicationController
   before_action :cart
 

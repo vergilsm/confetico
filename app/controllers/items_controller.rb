@@ -1,6 +1,3 @@
-# Товар
-# Можно: создать, обновить, просмотреть и удалить
-#
 class ItemsController < ApplicationController
   before_action :set_category, only: %I[new create destroy]
   before_action :set_item, only: %I[show edit update destroy]
@@ -21,7 +18,7 @@ class ItemsController < ApplicationController
     @item = @category.items.build(item_params)
     if @item.save
       redirect_to @category,
-        notice: I18n.t('controllers.items.created')
+                  notice: I18n.t('controllers.items.created')
     else
       render 'categories/show'
     end
@@ -32,7 +29,7 @@ class ItemsController < ApplicationController
   def update
     if @item.update(item_params)
       redirect_to category_path(@item.category_id),
-      notice: I18n.t('controllers.items.updated')
+                  notice: I18n.t('controllers.items.updated')
     else
       render :edit
     end
@@ -41,7 +38,8 @@ class ItemsController < ApplicationController
   def destroy
     @category = @item.category
     @item.destroy
-    redirect_to category_path(@category.id), notice: I18n.t('controllers.items.destroyed')
+    redirect_to category_path(@category.id),
+                notice: I18n.t('controllers.items.destroyed')
   end
 
   private

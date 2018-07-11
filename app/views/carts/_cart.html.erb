@@ -19,15 +19,15 @@
               <% end %>
             </div>
             <div class="col-lg-2">
-              <%= form_for cart_item, html: {id: "form_#{cart_item.id}"}, remote: true, data: {type: :json} do |f| %>
+              <%= form_for cart_item, remote: true, data: {type: :json} do |f| %>
                 <div class="col-md-11 form-group">
-                  <h5><%= f.number_field :quantity, id: "quantity_field", class: "form-control buffer-top" %></h5>
-                  <p class="show_limit_quantity_item">Осталось <%= t 'items', count: cart_item.item.quantity_item %></p>
+                  <h5><%= f.number_field :quantity, id: "quantity_field_#{cart_item.id}", class: "form-control buffer-top" %></h5>
+                  <p id="limit_quantity_<%= cart_item.id %>"class="show_limit_quantity_item">Осталось <%= t 'items', count: cart_item.item.quantity_item %></p>
                 </div>
               <% end %>
             </div>
             <div class="col-lg-1 pad-no">
-              <h5 class="buffer-top indent-top-sm text-right" id="subtotal_cart_item_<%= cart_item.id %>"><%= cart_item.subtotal %>  </h5>
+              <h5 class="buffer-top indent-top-sm text-right" id="subtotal_<%= cart_item.id %>"><%= cart_item.subtotal %>  </h5>
               <p class="opac-05 text-muted text-right">итог</p>
             </div>
             <div class="col-lg-1 pad-l-5">

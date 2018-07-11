@@ -1,10 +1,14 @@
 class Order < ApplicationRecord
   has_many :cart_items, dependent: :destroy
 
+  REGEXP_USER_NAME = /[\u0400-\u04FF\А-\Я|\а-\я]* ([А-Я|а-я])*/i
+  REGEXP_PHONE = /((8|\+7) ?)?\(?\d{3}\)? ?\d{1}-?\d{1}-?\d{1} ?\d{1}-?\d{1}-?\d{1}-?\d{1}/
+  REGEXP_EMAIL = /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
+
   validates :user_name, :phone, :email, presence: true
-  validates :user_name, format: {with: /[\u0400-\u04FF\А-\Я|\а-\я]* ([А-Я|а-я])*/i}
-  validates :phone, format: {with: /((8|\+7) ?)?\(?\d{3}\)? ?\d{1}-?\d{1}-?\d{1} ?\d{1}-?\d{1}-?\d{1}-?\d{1}/}
-  validates :email, format: {with: /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i}
+  validates :user_name, format: {with: REGEXP_USER_NAME}
+  validates :phone, format: {with: REGEXP_PHONE}
+  validates :email, format: {with: REGEXP_EMAIL}
   validates :address, length: {maximum: 150}
 
   after_create :minus_quantity_item

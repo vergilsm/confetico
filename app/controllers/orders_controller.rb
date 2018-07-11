@@ -1,7 +1,3 @@
-# Заказ
-# Можно: Посмотреть все заказы
-# Создать заказ
-# Удалить заказ
 class OrdersController < ApplicationController
   before_action :authenticate_admin!, except: %I[new create]
   layout 'devise', except: %I[new create]
@@ -40,6 +36,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_name, :phone, :email, :address, :order_price)
+    params.require(:order).permit(:user_name, :phone, :email, :address,
+                                  :order_price)
   end
 end

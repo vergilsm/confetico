@@ -16,8 +16,6 @@ class CartItem < ApplicationRecord
 
   # Не даем пользователю заказать товаров больше чем есть в наличии
   def limit_quantity
-    if quantity > item.quantity_item
-      self.quantity = item.quantity_item
-    end
+    self.quantity = item.quantity_item if quantity > item.quantity_item
   end
 end

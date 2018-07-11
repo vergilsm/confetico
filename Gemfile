@@ -26,6 +26,8 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'font-awesome-rails'
 gem 'rails-i18n'
 
+gem "active_model_serializers", '~> 0.10.7'
+
 # Для загрузки изображений
 gem 'carrierwave', '~> 1.0'
 # Для обработки изображений
