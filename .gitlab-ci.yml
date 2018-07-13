@@ -1,0 +1,4 @@
+deploy:
+  script:
+   - gem install dpl
+   - dpl --provider=heroku --api-key=HEROKU_KEY --app=confetico
