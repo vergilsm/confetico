@@ -31,33 +31,17 @@
     <div class="col-lg-6">
       <h2>Наши новые товары</h2>
       <div class="card-deck">
-        <div class="card bg-color text-white">
-          <%= image_tag(item_new(1).picture, class: "card-img-top img-md") %>
-          <div class="card-body">
-            <h5 class="card-title"><%= item_new(1).name %></h5>
+        <% @items.each do |item| %>
+          <div class="card bg-color text-white">
+            <%= image_tag(item.picture, class: "card-img-top img-md") %>
+            <div class="card-body">
+              <h5 class="card-title"><%= item.name %></h5>
+            </div>
+            <div class="card-footer">
+              <p><%= link_to 'Подробнее', item, class: "btn btn-primary" %></p>
+            </div>
           </div>
-          <div class="card-footer">
-            <p><%= link_to 'Подробнее', item_new(1), class: "btn btn-primary" %></p>
-          </div>
-        </div>
-        <div class="card bg-color text-white">
-          <%= image_tag(item_new(2).picture, class: "card-img-top img-md") %>
-          <div class="card-body">
-              <h5 class="card-title"><%= item_new(2).name %></h5>
-          </div>
-          <div class="card-footer">
-            <p><%= link_to 'Подробнее', item_new(2), class: "btn btn-primary" %></p>
-          </div>
-        </div>
-        <div class="card bg-color text-white">
-          <%= image_tag(item_new(3).picture, class: "card-img-top img-md") %>
-          <div class="card-body">
-            <h5 class="card-title"><%= item_new(3).name %></h5>
-          </div>
-          <div class="card-footer">
-            <p><%= link_to 'Подробнее', item_new(3), class: "btn btn-primary" %></p>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

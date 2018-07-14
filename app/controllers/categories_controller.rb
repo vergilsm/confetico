@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
   layout 'devise', except: %I[index show home]
 
   def home
+    @items = Item.order(created_at: :desc).limit(3)
     render layout: 'home_page'
   end
 

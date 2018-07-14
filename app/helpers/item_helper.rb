@@ -14,16 +14,4 @@ module ItemHelper
       asset_path('logo.jpg')
     end
   end
-
-  # Новинки: Три последних добавленных товара
-  def item_new(num)
-    case num
-    when 1
-      Item.order(created_at: :desc)[0]
-    when 2
-      Item.order(created_at: :desc)[1]
-    when 3
-      Item.order(created_at: :desc)[2]
-    end
-  end
 end
