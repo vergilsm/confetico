@@ -32,6 +32,8 @@ gem "active_model_serializers", '~> 0.10.7'
 gem 'carrierwave', '~> 1.0'
 # Для обработки изображений
 gem 'rmagick'
+# Для загрузки изображений на heroku
+gem 'fog-aws'
 
 # Для аутентификации админа
 gem 'devise'
