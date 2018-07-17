@@ -1,14 +1,8 @@
 <div class="marquee">
   <span>
-    <%= image_tag("goods/Candy_Box") %>
-    <%= image_tag("goods/Candy_Chocolate") %>
-    <%= image_tag("goods/Marmalade_Sweets_Candy") %>
-    <%= image_tag("goods/Sweets_Candy_Chocolate") %>
-    <%= image_tag("goods/Sweets_Candy_Chocolate_Closeup") %>
-    <%= image_tag("goods/Sweets_Candy_Chocolate_Heart") %>
-    <%= image_tag("goods/Sweets_Candy_Lollipop") %>
-    <%= image_tag("goods/Sweets_Candy_Marmalade") %>
-    <%= image_tag("goods/Sweets_Closeup_Macro_White") %>
+    <% @home_items.each do |item| %>
+      <%= image_tag(item.picture) %>
+    <% end %>
   </span>
 </div>
 

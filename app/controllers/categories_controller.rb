@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 
   def home
     @items = Item.order(created_at: :desc).limit(3)
+    @home_items = Item.order(created_at: :desc).limit(9)
     render layout: 'home_page'
   end
 
