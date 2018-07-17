@@ -260,7 +260,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.7)
   bootstrap (~> 4.0.0)
   byebug
-  carrierwave (~> 1.0)
+  carrierwave
   coffee-rails (~> 4.2)
   devise
   devise-i18n
@@ -285,4 +285,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.12.5
+   1.16.3
