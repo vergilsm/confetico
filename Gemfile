@@ -33,7 +33,7 @@ gem 'carrierwave'
 # Для обработки изображений
 gem 'rmagick'
 # Для загрузки изображений на heroku
-gem 'fog-aws'
+gem 'fog-aws', group: :production
 
 # Для аутентификации админа
 gem 'devise'
