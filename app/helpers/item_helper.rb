@@ -11,7 +11,7 @@ module ItemHelper
     if item.picture?
       item.picture.thumb.url
     else
-      asset_path('logo.jpg')
+      asset_path('logo-thumb.jpg')
     end
   end
 end
