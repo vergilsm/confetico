@@ -1,7 +1,11 @@
 <div class="marquee">
   <span>
     <% @home_items.each do |item| %>
-      <%= image_tag(item.picture) %>
+      <% if item.picture? %>
+        <%= image_tag(item.picture) %>
+      <% else %>
+        <%= image_tag("logo") %>
+      <% end %>
     <% end %>
   </span>
 </div>
@@ -27,7 +31,11 @@
       <div class="card-deck">
         <% @items.each do |item| %>
           <div class="card bg-color text-white">
-            <%= image_tag(item.picture, class: "card-img-top img-md") %>
+            <% if item.picture? %>
+              <%= image_tag(item.picture, class: "card-img-top img-md") %>
+            <% else %>
+              <%= image_tag("logo", class: "card-img-top img-md") %>
+            <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= item.name %></h5>
             </div>
