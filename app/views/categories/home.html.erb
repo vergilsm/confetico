@@ -4,7 +4,7 @@
       <% if item.picture? %>
         <%= image_tag(item.picture) %>
       <% else %>
-        <%= image_tag("logo") %>
+        <%= image_tag("logo", size: "300x300") %>
       <% end %>
     <% end %>
   </span>
@@ -34,7 +34,7 @@
             <% if item.picture? %>
               <%= image_tag(item.picture, class: "card-img-top img-md") %>
             <% else %>
-              <%= image_tag("logo", class: "card-img-top img-md") %>
+              <%= image_tag("logo", size: "300x300", class: "card-img-top img-md") %>
             <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= item.name %></h5>
