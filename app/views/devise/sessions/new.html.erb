@@ -1,6 +1,6 @@
 <div class=" text-center buffer-both">
   <div class="log-in">
-      <h3 class="log-in-header text-left">Log in</h3>
+      <h3 class="log-in-header text-left">Вход</h3>
 
     <%= simple_form_for(resource, as: resource_name,
                         url: session_path(resource_name)) do |f| %>
@@ -15,7 +15,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6 form-actions log-in-btm">
-              <%= f.button :submit, "Log in" %>
+              <%= f.button :submit, "Войти" %>
             </div>
             <div class="col-md-6 log-in-footer">
               <%= render "devise/shared/links" %>
