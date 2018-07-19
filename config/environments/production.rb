@@ -62,6 +62,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_options = { from: 'confetico@confetico.herokuapp.com' }
 
+  config.action_mailer.delivery_method = :smtp
   # Настройки для Sendgrid
   ActionMailer::Base.smtp_settings = {
     :address        => 'confetico@confetico.herokuapp.com',
