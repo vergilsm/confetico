@@ -65,7 +65,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # Настройки для Sendgrid
   ActionMailer::Base.smtp_settings = {
-    :address        => 'confetico@confetico.herokuapp.com',
+    :address        => 'smtp.sendgrid.net',
     :port           => '587',
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
