@@ -6,32 +6,43 @@
         <div class="max-width">
           <div class="row">
             <div class="col-lg-4">
-              <h5 class="buffer-top indent-top-sm"><%= cart_item.item.name %></h5>
+              <h5 class="buffer-top"><%= cart_item.item.name %></h5>
             </div>
             <div class="col-lg-2">
-              <h5 class="buffer-top indent-top-sm"><%= cart_item.item.weight %> гр.</h5>
+              <h5 class="buffer-top"><%= cart_item.item.weight %> гр.</h5>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-1">
               <% if cart_item.item.price %>
-                <h5 class="buffer-top indent-top-sm" id="price_cart_item_<%= cart_item.id %>"><%= cart_item.item.price %> <small><i class="fa fa-rub"></i></small></h5>
+                <h5 class="buffer-top" id="price_cart_item_<%= cart_item.id %>"><%= cart_item.item.price %> <small><i class="fa fa-rub"></i></small></h5>
               <% else %>
-                <h5 class="buffer-top indent-top-sm" id="price_cart_item_<%= cart_item.id %>"><%= cart_item.item.stock_price %> <small><i class="fa fa-rub"></i></small></h5>
+                <h5 class="buffer-top" id="price_cart_item_<%= cart_item.id %>"><%= cart_item.item.stock_price %> <small><i class="fa fa-rub"></i></small></h5>
               <% end %>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-3">
               <%= form_for cart_item, remote: true, data: {type: :json} do |f| %>
-                <div class="col-md-11 form-group">
-                  <h5><%= f.number_field :quantity, id: "quantity_field_#{cart_item.id}", class: "form-control buffer-top" %></h5>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h5><%= f.number_field :quantity, id: "quantity_field_#{cart_item.id}", class: "form-control buffer-top-15" %></h5>
+                    </div>
+                    <div class="col-md-6 buffer-top">
+                      <%= f.button 'Сохранить', class: "btn btn-secondary btn-sm" %>
+                    </div>
+                  </div>
                   <p id="limit_quantity_<%= cart_item.id %>"class="show_limit_quantity_item">Осталось <%= t 'items', count: cart_item.item.quantity_item %></p>
                 </div>
               <% end %>
             </div>
-            <div class="col-lg-1 pad-no">
-              <h5 class="buffer-top indent-top-sm text-right" id="subtotal_<%= cart_item.id %>"><%= cart_item.subtotal %>  </h5>
-              <p class="opac-05 text-muted text-right">итог</p>
-            </div>
-            <div class="col-lg-1 pad-l-5">
-              <i class="fa fa-rub buffer-top-lg"></i>
+            <div class="col-lg-2">
+              <div class="row">
+                <div class="col-md-6 text-right pad-no">
+                  <h5 class="buffer-top" id="subtotal_<%= cart_item.id %>"><%= cart_item.subtotal %></h5>
+                </div>
+                <div class="col-md-6 text-left pad-no">
+                  <p class="disp-inl"><i class="fa fa-rub buffer-top-25 pad-l-5"></i></p>
+                </div>
+              </div>
+              <p class="opac-05 text-muted pad-l-45">итог</p>
               <div id="total_quantity_item_<%= cart_item.id %>" style="opacity: 0;">
                 <%= cart_item.item.quantity_item %>
               </div>
