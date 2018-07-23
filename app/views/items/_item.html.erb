@@ -7,7 +7,7 @@
           <li class="buffer-top"><%= @item.description %></li>
           <% if @item.real_item == true %>
             <li class="buffer-top">
-              <%= link_to 'добавить в корзину', cart_items_path(item_id: @item.id), class: "btn btn-primary", id: 'add_to_cart', method: :post, remote: true, data: {toggle: "modal", target: "#myModal"} %>
+              <%= link_to 'Добавить в корзину', cart_items_path(item_id: @item.id), class: "btn btn-primary", id: 'add_to_cart', method: :post, remote: true, data: {toggle: "modal", target: "#myModal"} %>
             </li>
           <% else %>
               <li></li>

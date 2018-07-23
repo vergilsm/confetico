@@ -13,11 +13,11 @@ footer {
 }
 
 .bg-color {
-  background-color: #6B2175;
+  background-color: #8e44ad;
 }
 
-.light-blue {
-  color: #1D97BF;
+.light {
+  color: white;
 }
 
 .cart-white {
@@ -66,16 +66,24 @@ footer {
 }
 
 a {
-  color: #bdc3c7;
+  color: white;
 }
 
 a:hover {
-  color: #95a5a6;
+  color: #bdc3c7;
   text-decoration: none;
 }
 
 a p {
   margin-bottom: 0;
+}
+
+span p a {
+  color: gray;
+}
+
+td a {
+  color: gray;
 }
 
 .disp-inl {
