@@ -3,7 +3,7 @@
     <% if item.persisted? %>
       <div class="card">
         <%= image_tag(item_picture(item), class: "card-img-top") %>
-        <div class="card-footer bg-color">
+        <div class="card-body bg-color">
           <div class="container">
             <div class="row">
               <h4><%= link_to  item.name, item_path(item) %></h4>
