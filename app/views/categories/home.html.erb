@@ -32,9 +32,9 @@
         <% @items.each do |item| %>
           <div class="card bg-color text-white">
             <% if item.picture? %>
-              <%= image_tag(item.picture, class: "card-img-top img-md") %>
+              <%= image_tag(item.picture, class: "card-img-top") %>
             <% else %>
-              <%= image_tag("logo.jpg", class: "card-img-top img-md") %>
+              <%= image_tag("logo.jpg", class: "card-img-top") %>
             <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= item.name %></h5>

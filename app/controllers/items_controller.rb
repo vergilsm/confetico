@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_category, only: %I[new create destroy]
-  before_action :set_item, only: %I[show edit update destroy]
+  before_action :set_item, only: %I[show edit update destroy update_quantity]
   before_action :authenticate_admin!, except: %I[show stock]
   layout 'devise', except: %I[show stock]
 
@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
 
   def edit; end
 
+
   def update
     if @item.update(item_params)
       redirect_to category_path(@item.category_id),
@@ -42,6 +43,17 @@ class ItemsController < ApplicationController
                 notice: I18n.t('controllers.items.destroyed')
   end
 
+  def update_quantity
+    delta = params[:delta].to_i
+    if @item.update_quantity(delta)
+      redirect_to category_path(@item.category_id),
+                  notice: I18n.t('controllers.items.updated')
+    else
+      redirect_to category_path(@item.category_id),
+                  notice: I18n.t('controllers.items.updated')
+    end
+  end
+
   private
 
   def set_category
@@ -54,6 +66,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :weight, :description,
-                                 :quantity_item, :picture, :stock_price)
+                                 :picture, :stock_price)
   end
 end

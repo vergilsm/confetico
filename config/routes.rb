@@ -14,7 +14,10 @@ Rails.application.routes.draw do
 
   scope :admins do
     resources :categories do
-      resources :items, shallow: true
+      resources :items, shallow: true do
+        put :update_quantity, on: :member
+        patch :update_quantity, on: :member
+      end
     end
   end
 

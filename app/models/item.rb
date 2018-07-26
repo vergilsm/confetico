@@ -13,6 +13,13 @@ class Item < ApplicationRecord
 
   # Есть ли товар в наличии?
   def real_item
-    !(quantity_item <= 0)
+    quantity_item > 0
+  end
+
+  def update_quantity(delta)
+    return false if quantity_item + delta < 0
+    Item.connection.execute("UPDATE items
+                             SET quantity_item = quantity_item + #{delta}
+                             WHERE id = #{id};")
   end
 end
