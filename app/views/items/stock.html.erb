@@ -2,19 +2,21 @@
 
 <h2 class="buffer-both text-center">Товары по акции <hr /></h2>
 
-<div class="card-deck w-50 p-2 pull-left">
+<div class="card-deck w-100 p-2 pull-left">
   <% @items.each do |item| %>
     <% if item.stock_price%>
-      <div class="card">
+      <div class="card text-center">
         <%= image_tag(item_picture(item), class: "card-img-top") %>
-        <div class="card-footer bg-color">
+        <div class="card-body bg-color">
           <div class="container">
             <div class="row">
-              <h4><%= link_to  item.name, item_path(item) %></h4>
-              <div class="col-md-6 pad-no light">
+              <div class="col-md-12">
+                <h4><%= link_to  item.name, item_path(item) %></h4>
+              </div>
+              <div class="col-md-6 light text-right">
                 <h5><%= item.weight %> гр.</h5>
               </div>
-              <div class="col-md-6 light">
+              <div class="col-md-6 light text-left">
                 <h5><%= item.stock_price %> <small><i class="fa fa-rub"></i></small></h5>
               </div>
             </div>
