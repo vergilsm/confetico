@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
                   notice: I18n.t('controllers.items.updated')
     else
       redirect_to category_path(@item.category_id),
-                  notice: I18n.t('controllers.items.updated')
+                  error: I18n.t('controllers.items.updated_error')
     end
   end
 
