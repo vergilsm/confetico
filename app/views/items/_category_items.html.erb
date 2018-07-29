@@ -1,24 +1,24 @@
-<div class="card-deck pull-left">
+<div class="mainWrapper">
   <% @category.items.each do |item| %>
     <% if item.persisted?%>
-      <div class="card text-center">
-        <%= image_tag(item_picture(item), class: "card-img-top") %>
-        <div class="card-body bg-color">
-            <div class="row">
-              <div class="col-md-12">
-                <h4><%= link_to  item.name, item_path(item) %></h4>
-              </div>
-              <div class="col-md-6 light text-right">
-                <h5><%= item.weight %> гр.</h5>
-              </div>
-              <div class="col-md-6 light text-left">
-                <% if item.price %>
-                  <h5><%= item.price %> <small><i class="fa fa-rub"></i></small></h5>
-                <% else %>
-                  <h5><%= item.stock_price %> <small><i class="fa fa-rub"></i></small></h5>
-                <% end %>
-              </div>
-            </div>
+      <div class="wrapper text-center">
+        <div class="chl">
+          <%= image_tag(item_picture(item), class: "card-img-top") %>
+        </div>
+        <div class="row buffer-both">
+          <div class="chl col-lg-12">
+            <h4><%= link_to  item.name, item_path(item) %></h4>
+          </div>
+          <div class="chl col-lg-6 text-right light">
+            <h5><%= item.weight %> гр.</h5>
+          </div>
+          <div class="chl  col-lg-6 text-left light">
+            <% if item.price %>
+              <h5><%= item.price %> <small><i class="fa fa-rub"></i></small></h5>
+            <% else %>
+              <h5><%= item.stock_price %> <small><i class="fa fa-rub"></i></small></h5>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
