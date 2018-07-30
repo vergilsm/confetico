@@ -2,17 +2,17 @@
   <% @category.items.each do |item| %>
     <% if item.persisted?%>
       <div class="wrapper text-center">
-        <div class="chl">
+        <div>
           <%= image_tag(item_picture(item), class: "card-img-top") %>
         </div>
-        <div class="row buffer-both">
-          <div class="chl col-lg-12">
+          <div class="chl buffer-top">
             <h4><%= link_to  item.name, item_path(item) %></h4>
           </div>
-          <div class="chl col-lg-6 text-right light">
+        <div class="row buffer-both chl">
+          <div class="col-lg-6 text-right light">
             <h5><%= item.weight %> гр.</h5>
           </div>
-          <div class="chl  col-lg-6 text-left light">
+          <div class="col-lg-6 text-left light">
             <% if item.price %>
               <h5><%= item.price %> <small><i class="fa fa-rub"></i></small></h5>
             <% else %>
