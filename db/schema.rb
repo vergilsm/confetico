@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180601101232) do
+ActiveRecord::Schema.define(version: 20180730105326) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -54,15 +54,15 @@ ActiveRecord::Schema.define(version: 20180601101232) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string   "name",          null: false
+    t.string   "name",                      null: false
     t.integer  "price"
-    t.integer  "weight",        null: false
+    t.integer  "weight",                    null: false
     t.boolean  "real"
     t.text     "description"
-    t.integer  "quantity_item"
+    t.integer  "quantity_item", default: 0
     t.integer  "category_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "picture"
     t.integer  "stock_price"
     t.index ["category_id"], name: "index_items_on_category_id"
