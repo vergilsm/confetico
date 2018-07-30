@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
       redirect_to @category,
                   notice: I18n.t('controllers.items.created')
     else
-      render 'categories/show'
+      render :new
     end
   end
 

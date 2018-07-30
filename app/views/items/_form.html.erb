@@ -1,4 +1,4 @@
-<%= simple_form_for [@category, @item] do |f| %>
+<%= simple_form_for [@category, @item], html: {multipart: true} do |f| %>
   <%= f.input   :name, label:'Наименование товара' %>
   <%= f.input   :price, label:'Цена' %>
   <%= f.input   :stock_price, label:'Цена по акции' %>
