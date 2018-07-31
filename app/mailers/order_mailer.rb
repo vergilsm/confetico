@@ -1,5 +1,5 @@
 class OrderMailer < ApplicationMailer
-  default from: 'info_confetico@example.com'
+  default from: 'info_confetico@confetico.herokuapp.com'
 
   def created_order(order)
     @order = order

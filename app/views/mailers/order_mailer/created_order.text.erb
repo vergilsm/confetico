@@ -1,4 +1,14 @@
 Спасибо за заказ <%= @order.user_name %>
 ===============================================
 
+<% @order.cart_items.each do |cart_item| %>
+  <% if cart_item.item.price %>
+    <%= cart_item.quantity %> x <%= cart_item.item.name %> -  <%= cart_item.item.price %> руб.
+  <% else %>
+    <%= cart_item.quantity %> x <%= cart_item.item.name %> -  <%= cart_item.item.stock_price %> руб.
+  <% end %>
+<% end %>
+
+===============================================
+
 Сумма заказа: <%= @order.order_price %> руб.

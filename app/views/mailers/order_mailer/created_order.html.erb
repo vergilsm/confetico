@@ -1,2 +1,22 @@
 <h2>Спасибо за заказ <%= @order.user_name %></h2><br />
+
+<ul>
+  <% @order.cart_items.each do |cart_item| %>
+    <li class="buffer-both">
+      <div class="row">
+        <div class="col-lg-6">
+          <h4 class="buffer-top-15 pad-l-5">
+            <% if cart_item.item.price %>
+              <%= cart_item.quantity %> x <%= cart_item.item.name %> -  <%= cart_item.item.price %> руб.
+            <% else %>
+              <%= cart_item.quantity %> x <%= cart_item.item.name %> -  <%= cart_item.item.stock_price %> руб.
+            <% end %>
+          </h4>
+        </div>
+      </div>
+    </li>
+
+  <% end %>
+</ul>
+
 <p>Сумма заказа: <%= @order.order_price %> руб.</p><br />

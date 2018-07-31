@@ -1,5 +1,5 @@
 class AdminMailer < ApplicationMailer
-  default from: 'notification@example.com'
+  default from: 'confetico@confetico.herokuapp.com'
 
   def admin_destroyed(admin, email)
     @admin = admin
