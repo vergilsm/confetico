@@ -1,24 +1,41 @@
-# README
+## Приложение "Конфетико"
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Это онлайн-магазин по продаже сладостей
 
-Things you may want to cover:
+Моё первое, сделанное с нуля самостоятельное приложение!
 
-* Ruby version
+[Рабочее приложение](https://confetico.herokuapp.com/)
 
-* System dependencies
+**Описание**
 
-* Configuration
+Приложение преднозначено для покупки пользователем товаров онлайн-магазина.
+После оформления и подтверждения заказа пользователю на почту придет письмо
+с подтверждением его заказа.
 
-* Database creation
+Административная часть приложения так же сделана с нуля.
+Сначала была мысль использовать <tt>gem 'rails_admin'</tt> или <tt>gem "administrate"</tt>
+но из-за их избыточного функционала возникла идея написать свою админку.
 
-* Database initialization
+**Установка и запуск**
 
-* How to run the test suite
+Перед запуском приложения необходимо выполнить установку всех необходимых гемов и подготовку базы данных. Для этого в консоли в директории с приложением необходимо выполнить команды:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle install
+bundle exec rake db:migrate
+```
 
-* Deployment instructions
+А так же необходимо установить переменные окружения для работы:
 
-* ...
+* SendGrid
+
+```
+SENDGRID_USERNAME
+SENDGRID_PASSWORD
+```
+
+Для запуска локального сервера необходимо выполнить команду:
+
+```
+bundle exec rails s
+```
