@@ -15,8 +15,11 @@
         </div>
       </div>
     </li>
-
+    <li>
+      <h4>Адрес доставки:</h4>
+      <h4><%= @order.address %></h4>
+    </li>
   <% end %>
 </ul>
 
-<p>Сумма заказа: <%= @order.order_price %> руб.</p><br />
+<h3>Сумма заказа: <%= @order.order_price %> руб.</h3>

@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   has_many :cart_items, dependent: :destroy
 
-  REGEXP_USER_NAME = /[\u0400-\u04FF\А-\Я|\а-\я]+\z/
+  REGEXP_USER_NAME = /[\u0400-\u04FF\А-\Я|\а-\я]*/i
   REGEXP_PHONE = /(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}/
   REGEXP_EMAIL = /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
 
