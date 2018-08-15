@@ -4,10 +4,10 @@ class Item < ApplicationRecord
   has_many   :carts, through: :cart_items
 
   validates :category, presence: true
-  # Цена должна быть больше нуля
-  # validates :price, numericality: {greater_than: 0, allow_nil: true}
   validates :name, :weight, :description, presence: true
   validates_numericality_of :quantity_item, greater_than_or_equal_to: 0
+
+  validate :price_presence
 
   mount_uploader :picture, PictureUploader
 
@@ -21,5 +21,13 @@ class Item < ApplicationRecord
     Item.connection.execute("UPDATE items
                              SET quantity_item = quantity_item + #{delta}
                              WHERE id = #{id};")
+  end
+
+  # price или stock_price должен быть
+  def price_presence
+    if price.blank? && stock_price.blank?
+      errors.add(:price, :blank)
+      errors.add(:stock_price, :blank)
+    end
   end
 end
