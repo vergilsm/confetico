@@ -51,7 +51,11 @@
         </div>
         <div class="row">
           <div class="col-lg-4">
-            <%= link_to "Удалить товар", cart_item_path(cart_item), method: :delete %>
+            <span>
+              <p>
+                <%= link_to "Удалить товар", cart_item_path(cart_item), method: :delete %>
+              </p>
+            </span>
           </div>
         </div>
       </li>
@@ -62,7 +66,7 @@
       <h4 class="disp-inl">К оплате:</h4> <h4 class="disp-inl" id="total_price"><%= (@cart.total_price) %></h4> <i class="fa fa-rub"></i>
     </div>
     <div class="col-lg-6">
-      <%= link_to "Очистить корзину", cart_path(@current_cart),method: :delete, data: {confirm: "Вы уверены?"}, class: "pull-right pad-r-15" %>
+      <span><p><%= link_to "Очистить корзину", cart_path(@current_cart),method: :delete, data: {confirm: "Вы уверены?"}, class: "pull-right pad-r-15" %></p></span>
     </div>
   </div>
   <br />
