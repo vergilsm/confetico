@@ -29,8 +29,15 @@
             <li class="nav-item">
               <%= link_to 'О компании', deliveries_company_path, class: "nav-link" %>
             </li>
-            <li class="nav-item">
-              <%= link_to 'Товары', categories_path, class: "nav-link" %>
+            <li class="nav-item dropdown">
+              <%= link_to 'Товары', categories_path, class: "nav-link dropdown-toggle", data: {:toggle => "dropdown"} %>
+
+              <div class="dropdown-menu">
+                <% @categories.each do |category| %>
+                  <%= link_to category.product_category, category,
+                  class: "list-group-item list-group-item-action" %>
+                <% end %>
+              </div>
             </li>
             <li class="nav-item">
               <a href="/deliveries/show" class="nav-link">Доставка</a>
