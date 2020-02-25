@@ -22,7 +22,7 @@ gem 'simple_form'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'font-awesome-rails'
 gem 'rails-i18n'
 
